@@ -1,0 +1,24 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.google.com/admob/api/v1/auth
+docs: https://developers.google.com/admob/api/v1/auth
+summary:
+  types: [oauth2]
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+notes: >-
+  All AdMob API calls must be authorized through Google OAuth 2.0. Applications
+  obtain user consent, receive an authorization code, exchange it for access and
+  refresh tokens, and call admob.googleapis.com with a Bearer access token.
+  Credentials are created in the Google API Console (OAuth client ID). Service
+  accounts are not supported for the AdMob API; a user must authorize access.
+schemes:
+- name: GoogleOAuth2
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+  tokenUrl: https://oauth2.googleapis.com/token
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  sources: [docs]
