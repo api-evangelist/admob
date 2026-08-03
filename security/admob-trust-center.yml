@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: searched
+probe: false
+source: https://cloud.google.com/security/compliance/offerings
+url: https://cloud.google.com/security/compliance
+notes: >-
+  AdMob is a Google product and inherits Google's enterprise security and
+  compliance program. Google publishes its certifications and audit reports
+  through the Google Cloud compliance offerings and the Google security /
+  trust surfaces.
+certifications:
+- ISO 27001
+- ISO 27017
+- ISO 27018
+- SOC 2
+- SOC 3
+- PCI DSS
+evidence:
+- source: https://cloud.google.com/security/compliance/offerings
+  keywords: [iso 27001, soc 2, soc 3, pci dss, compliance]

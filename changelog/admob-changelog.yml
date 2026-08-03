@@ -1,0 +1,29 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.google.com/admob/api/release-notes
+docs: https://developers.google.com/admob/api/release-notes
+scheme: dated-release-notes
+current_version: v1
+also_available: [v1beta]
+entries:
+- date: '2023-09-05'
+  version: v1beta
+  breaking: false
+  highlights: >-
+    Added 18 new methods to v1beta covering account management, ad source
+    configuration, ad unit mappings, apps, campaign report, and mediation
+    (accounts.adSources, adapters, adUnitMappings, adUnits, apps, campaignReport,
+    mediation).
+- date: '2021-04-21'
+  version: v1
+  breaking: false
+  highlights: >-
+    Introduced two list methods in v1: accounts.adUnits.list and
+    accounts.apps.list.
+- date: '2019-08-11'
+  version: v1
+  breaking: false
+  highlights: >-
+    Initial v1 release establishing foundational methods: accounts.get,
+    accounts.list, accounts.mediationReport.generate, and
+    accounts.networkReport.generate.

@@ -1,0 +1,27 @@
+# AdMob
+
+> AdMob is Google's mobile app advertising and monetization platform. The AdMob API (admob.googleapis.com, v1) provides programmatic, read-only access to AdMob account data, apps, ad units, mediation configuration, and network/mediation performance reports over REST/JSON, authorized with Google OAuth 2.0 (scopes: admob.readonly, admob.report).
+
+## APIs
+- [AdMob API](https://developers.google.com/admob/api): REST/JSON read-only access to AdMob accounts, apps, ad units, mediation config, and reports. Base URL https://admob.googleapis.com.
+
+## Docs
+- [Getting Started](https://developers.google.com/admob/api/v1/getting-started): Set up a project, enable the API, and make a first call.
+- [API Reference (REST)](https://developers.google.com/admob/api/rest): Full method and resource reference.
+- [OAuth setup](https://developers.google.com/admob/api/v1/auth): Authorization with Google OAuth 2.0.
+- [Client libraries](https://developers.google.com/admob/api/v1/libraries): Official Google API client libraries.
+- [Release notes](https://developers.google.com/admob/api/release-notes): Dated changelog for v1 and v1beta.
+
+## Artifacts
+- [Authentication](authentication/admob-authentication.yml): OAuth 2.0 profile.
+- [OAuth scopes](scopes/admob-scopes.yml): admob.readonly and admob.report.
+- [Packages / SDKs](packages/admob-packages.yml): Official client libraries.
+- [Conventions](conventions/admob-conventions.yml): Pagination, error envelope, versioning.
+- [Lifecycle](lifecycle/admob-lifecycle.yml): Versioning and deprecation.
+- [Changelog](changelog/admob-changelog.yml): Recent release entries.
+
+## Links
+- [Website](https://admob.google.com)
+- [Google Ads Developer Blog](https://ads-developers.googleblog.com/)
+- [Support](https://support.google.com/admob)
+- [GitHub (googleads)](https://github.com/googleads)

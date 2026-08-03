@@ -1,0 +1,43 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.google.com/admob/api/v1/libraries
+packages:
+- language: javascript
+  registry: npm
+  name: "@googleapis/admob"
+  url: https://www.npmjs.com/package/@googleapis/admob
+  install: npm install @googleapis/admob
+  official: true
+- language: javascript
+  registry: npm
+  name: googleapis
+  url: https://www.npmjs.com/package/googleapis
+  install: npm install googleapis
+  official: true
+  notes: Aggregate Google APIs Node.js client; exposes google.admob('v1').
+- language: go
+  registry: pkg.go.dev
+  name: google.golang.org/api/admob/v1
+  url: https://pkg.go.dev/google.golang.org/api/admob/v1
+  install: go get google.golang.org/api/admob/v1
+  official: true
+- language: ruby
+  registry: rubygems
+  name: google-apis-admob_v1
+  url: https://rubygems.org/gems/google-apis-admob_v1
+  install: gem install google-apis-admob_v1
+  official: true
+- language: python
+  registry: pypi
+  name: google-api-python-client
+  url: https://pypi.org/project/google-api-python-client/
+  install: pip install google-api-python-client
+  official: true
+  notes: Aggregate Google APIs Python client; build('admob', 'v1').
+- language: php
+  registry: packagist
+  name: google/apiclient
+  url: https://packagist.org/packages/google/apiclient
+  install: composer require google/apiclient
+  official: true
+  notes: Aggregate Google API PHP client covering AdMob v1.

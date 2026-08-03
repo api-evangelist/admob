@@ -1,0 +1,23 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.google.com/admob/api/release-notes
+versioning:
+  scheme: uri-path
+  current: v1
+  channels: [v1, v1beta]
+  docs: https://developers.google.com/admob/api/release-notes
+deprecation:
+  policy_url: https://cloud.google.com/apis/design/versioning
+  notes: >-
+    The AdMob API follows Google's API versioning and deprecation practices.
+    v1 is the stable channel; v1beta is a beta channel whose surface may change
+    before promotion. Deprecations and additions are announced through the dated
+    release notes.
+  release_notes: https://developers.google.com/admob/api/release-notes
+sla:
+  notes: >-
+    No dedicated public AdMob API SLA or status dashboard is published; AdMob is
+    a free publisher monetization product governed by the AdMob and Google terms
+    of service.
+status_page: null
+deprecated_operations: []

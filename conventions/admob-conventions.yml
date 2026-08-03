@@ -1,0 +1,41 @@
+generated: '2026-07-17'
+method: searched
+source: https://developers.google.com/admob/api/v1/getting-started
+docs: https://developers.google.com/admob/api/rest
+notes: >-
+  The AdMob API follows Google's standard REST API design conventions (Google
+  API Improvement Proposals). It is a read-only reporting/inventory API, so it
+  exposes no create/update/delete write semantics and documents no
+  idempotency-key contract.
+authentication:
+  style: oauth2-bearer
+  detail: OAuth 2.0 access token in the Authorization Bearer header (see authentication/admob-authentication.yml).
+idempotency:
+  supported: false
+  notes: Read-only API; no documented idempotency-key header.
+pagination:
+  style: page-token
+  request_params: [pageSize, pageToken]
+  response_fields: [nextPageToken]
+  notes: >-
+    List methods (accounts.list, accounts.apps.list, accounts.adUnits.list) use
+    Google's standard pageSize/pageToken paging with nextPageToken in responses.
+    Report generation methods stream results.
+versioning:
+  style: uri-path
+  detail: Version in the path segment (v1, v1beta).
+error_envelope:
+  format: google.rpc.Status
+  fields: [error.code, error.message, error.status, error.details]
+  notes: >-
+    Errors return the standard Google JSON error envelope (an error object with
+    numeric code, message, canonical status string, and details[]), not RFC 9457
+    problem+json.
+rate_limit_signaling:
+  notes: >-
+    Enforced via Google API Console per-project quotas; HTTP 429 with
+    RESOURCE_EXHAUSTED on quota overrun. Quotas are managed in the API Console.
+cross_links:
+  authentication: authentication/admob-authentication.yml
+  scopes: scopes/admob-scopes.yml
+  lifecycle: lifecycle/admob-lifecycle.yml

@@ -1,0 +1,24 @@
+generated: '2026-07-17'
+method: searched
+notes: >-
+  The AdMob API host (admob.googleapis.com) exposes no /.well-known/ discovery
+  surface. AdMob authorizes via Google's OAuth 2.0 / OpenID Connect provider, so
+  the relevant discovery documents live on accounts.google.com (OIDC) and
+  www.google.com (security.txt).
+hosts:
+- host: https://admob.googleapis.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://accounts.google.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: admob-openid-configuration.json
+- host: https://www.google.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: admob-security.txt
