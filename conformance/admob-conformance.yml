@@ -1,0 +1,75 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  openapi/admob-api-v1-openapi.yml, openapi/admob-api-v1beta-openapi.yml,
+  discovery/admob-api-v1.json, https://developers.google.com/admob/api/v1/auth,
+  https://cloud.google.com/security/compliance/offerings
+notes: >-
+  Cross-cutting standards the AdMob API conforms to, derived from the OpenAPI
+  converted from Google's own Discovery Document plus the published auth and
+  quota docs. Google's organization-wide certifications are recorded separately
+  in security/admob-trust-center.yml; they are Google-wide, not AdMob-API
+  specific.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    securitySchemes declares GoogleOAuth2 (type oauth2, authorizationCode flow,
+    accounts.google.com/o/oauth2/v2/auth + oauth2.googleapis.com/token) with the
+    admob.readonly and admob.report scopes; every operation carries a security
+    requirement.
+- id: oidc
+  conforms: true
+  evidence: >-
+    Authorization is delegated to Google's OpenID Provider; the OIDC discovery
+    document at accounts.google.com/.well-known/openid-configuration returned 200
+    and is captured at well-known/admob-openid-configuration.json.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: accounts.google.com/.well-known/oauth-authorization-server returned 200.
+- id: google-discovery-document
+  conforms: true
+  evidence: >-
+    admob.googleapis.com serves a discovery#restDescription document at
+    /$discovery/rest?version=v1 and ?version=v1beta (revision 20260731) — the
+    machine-readable contract this repo's OpenAPI was converted from.
+- id: google-aip-resource-names
+  conforms: true
+  evidence: >-
+    Resources are addressed by hierarchical resource names (accounts/{publisherId}/adUnits/{adUnitId})
+    per Google API Improvement Proposals, with custom methods expressed as :generate / :stop / :batchCreate.
+- id: pagination
+  conforms: true
+  evidence: List methods take pageSize/pageToken and return nextPageToken (AIP-158 page-token pagination).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the google.rpc.Status envelope in application/json, not application/problem+json.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header or equivalent is documented or present in the spec; write methods on v1beta are not idempotency-protected.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header support is documented; deprecations are announced through dated release notes only.
+- id: openapi
+  conforms: partial
+  evidence: >-
+    Google does not publish OpenAPI for AdMob. The OpenAPI 3.1.0 documents in
+    openapi/ are a mechanical conversion of Google's first-party Discovery
+    Document by API Evangelist, not a provider-published contract.
+- id: asyncapi
+  conforms: false
+  evidence: The AdMob API exposes no events, streaming or webhook surface.
+- id: json-schema
+  conforms: true
+  evidence: Request/response bodies are described by JSON Schema in components.schemas (28 in v1, 49 in v1beta).
+- id: mtls
+  conforms: false
+  evidence: No mutualTLS security scheme is declared.
+- id: fapi
+  conforms: false
+- id: scim
+  conforms: false
+- id: odata
+  conforms: false
+- id: jsonapi
+  conforms: false

@@ -1,4 +1,4 @@
-generated: '2026-07-17'
+generated: '2026-08-12'
 method: searched
 source: https://developers.google.com/admob/api/release-notes
 versioning:
@@ -6,18 +6,44 @@ versioning:
   current: v1
   channels: [v1, v1beta]
   docs: https://developers.google.com/admob/api/release-notes
+  discovery:
+    v1: https://admob.googleapis.com/$discovery/rest?version=v1
+    v1beta: https://admob.googleapis.com/$discovery/rest?version=v1beta
+    revision: '20260731'
+    notes: >-
+      Google serves a dated Discovery Document revision for each channel. The
+      revision string is the most precise change signal AdMob publishes — the
+      human release notes have not been updated since 2023-09-05.
 deprecation:
   policy_url: https://cloud.google.com/apis/design/versioning
+  sunset_header: false
+  deprecation_header: false
   notes: >-
     The AdMob API follows Google's API versioning and deprecation practices.
-    v1 is the stable channel; v1beta is a beta channel whose surface may change
-    before promotion. Deprecations and additions are announced through the dated
-    release notes.
+    v1 is the stable, read-only channel; v1beta is a beta channel carrying the
+    entire write surface and may change before promotion. Deprecations and
+    additions are announced through the dated release notes; no RFC 8594
+    Sunset/Deprecation response headers are documented.
   release_notes: https://developers.google.com/admob/api/release-notes
 sla:
+  url: null
+  uptime_target: null
   notes: >-
-    No dedicated public AdMob API SLA or status dashboard is published; AdMob is
-    a free publisher monetization product governed by the AdMob and Google terms
-    of service.
-status_page: null
+    No dedicated AdMob API SLA is published. AdMob is a free publisher
+    monetization product governed by the AdMob and Google terms of service.
+status_page: https://ads.google.com/status/publisher/
+status_page_notes: >-
+  Google's Ads status dashboard reports AdMob alongside AdSense, Google Ad
+  Manager, Google Ads and the other publisher and buy-side products. It is a
+  product-level dashboard — it does not break out admob.googleapis.com as its
+  own component. Probed 2026-08-12, HTTP 200, AdMob listed by name.
 deprecated_operations: []
+staleness:
+  last_release_note: '2023-09-05'
+  notes: >-
+    The human-readable release notes carry no entry after 2023-09-05, while the
+    Discovery Document was revised 2026-07-31. Change is happening; it is not
+    being narrated.
+cross_links:
+  changelog: changelog/admob-changelog.yml
+  conventions: conventions/admob-conventions.yml

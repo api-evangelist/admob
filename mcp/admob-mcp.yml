@@ -1,0 +1,257 @@
+generated: '2026-08-12'
+method: derived
+status: candidate
+source: openapi/admob-api-v1-openapi.yml, openapi/admob-api-v1beta-openapi.yml
+notes: >-
+  Google publishes NO first-party MCP server for AdMob. Searched the AdMob
+  developer docs, the Google Ads Developer Blog (which did announce an
+  open-source MCP server for the Google Ads API, a different product) and the
+  MCP registries on 2026-08-12; the only AdMob MCP servers that exist are
+  independent community projects. The tool list below is therefore a CANDIDATE
+  derived one-to-one from the 25 real operations in the OpenAPI converted from
+  Google's Discovery Document — every tool inherits its input schema from the
+  named source operation. No MCPServer pointer is wired into apis.yml, because
+  that pointer asserts the provider serves an MCP endpoint and AdMob does not.
+server:
+  official: false
+  url: null
+  transport: null
+third_party_servers:
+  - name: willhou/admob-mcp
+    url: https://github.com/willhou/admob-mcp
+    first_party: false
+  - name: jerry2247/admob-mcp
+    url: https://github.com/jerry2247/admob-mcp
+    first_party: false
+  - name: ard3051997/Admob-MCP
+    url: https://github.com/ard3051997/Admob-MCP
+    first_party: false
+  - name: kunny/admob-mcp-server
+    url: https://github.com/kunny/admob-mcp-server
+    first_party: false
+auth:
+  model: oauth2
+  detail: >-
+    Any MCP server over the AdMob API must carry a Google OAuth 2.0 user access
+    token with admob.readonly and/or admob.report; the AdMob API does not support
+    service accounts.
+tool_count: 25
+tools:
+- name: admob_v1_accounts_get
+  description: Gets information about the specified AdMob publisher account.
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_get
+  method: GET
+  path: /v1/accounts/{accountsId}
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: false
+- name: admob_v1_accounts_list
+  description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI.
+    For more information, see https
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_list
+  method: GET
+  path: /v1/accounts
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: false
+- name: admob_v1_accounts_adUnits_list
+  description: List the ad units under the specified AdMob account.
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_adUnits_list
+  method: GET
+  path: /v1/accounts/{accountsId}/adUnits
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1_accounts_networkReport_generate
+  description: 'Generates an AdMob Network report based on the provided report specification. Returns
+    result of a server-side streaming '
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_networkReport_generate
+  method: POST
+  path: /v1/accounts/{accountsId}/networkReport:generate
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: true
+- name: admob_v1_accounts_mediationReport_generate
+  description: Generates an AdMob Mediation report based on the provided report specification. Returns
+    result of a server-side streamin
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_mediationReport_generate
+  method: POST
+  path: /v1/accounts/{accountsId}/mediationReport:generate
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: true
+- name: admob_v1_accounts_apps_list
+  description: List the apps under the specified AdMob account.
+  source_operation: openapi/admob-api-v1-openapi.yml#accounts_apps_list
+  method: GET
+  path: /v1/accounts/{accountsId}/apps
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_get
+  description: Gets information about the specified AdMob publisher account.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_get
+  method: GET
+  path: /v1beta/accounts/{accountsId}
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: false
+- name: admob_v1beta_accounts_list
+  description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI.
+    For more information, see https
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_list
+  method: GET
+  path: /v1beta/accounts
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: false
+- name: admob_v1beta_accounts_apps_create
+  description: Creates an app under the specified AdMob account. This method has limited access. If you
+    see a 403 permission denied err
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_apps_create
+  method: POST
+  path: /v1beta/accounts/{accountsId}/apps
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_apps_list
+  description: List the apps under the specified AdMob account.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_apps_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/apps
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_adSources_list
+  description: List the ad sources.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adSources_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/adSources
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: false
+- name: admob_v1beta_accounts_adSources_adapters_list
+  description: List the adapters of the ad source.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adSources_adapters_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/adSources/{adSourcesId}/adapters
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_networkReport_generate
+  description: 'Generates an AdMob Network report based on the provided report specification. Returns
+    result of a server-side streaming '
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_networkReport_generate
+  method: POST
+  path: /v1beta/accounts/{accountsId}/networkReport:generate
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: true
+- name: admob_v1beta_accounts_mediationReport_generate
+  description: Generates an AdMob Mediation report based on the provided report specification. Returns
+    result of a server-side streamin
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationReport_generate
+  method: POST
+  path: /v1beta/accounts/{accountsId}/mediationReport:generate
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: true
+- name: admob_v1beta_accounts_campaignReport_generate
+  description: Generates Campaign Report based on provided specifications.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_campaignReport_generate
+  method: POST
+  path: /v1beta/accounts/{accountsId}/campaignReport:generate
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+  mutating: true
+- name: admob_v1beta_accounts_adUnits_list
+  description: List the ad units under the specified AdMob account.
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adUnits_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/adUnits
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_adUnits_create
+  description: Creates an ad unit under the specified AdMob account. This method has limited access. If
+    you see a 403 permission denied
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adUnits_create
+  method: POST
+  path: /v1beta/accounts/{accountsId}/adUnits
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_adUnits_adUnitMappings_create
+  description: Create an ad unit mapping under the specific AdMob account and ad unit. This method has
+    limited access. If you see a 403
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adUnits_adUnitMappings_create
+  method: POST
+  path: /v1beta/accounts/{accountsId}/adUnits/{adUnitsId}/adUnitMappings
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_adUnits_adUnitMappings_list
+  description: List ad unit mappings under the specified AdMob account and ad unit. This method has limited
+    access. If you see a 403 pe
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adUnits_adUnitMappings_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/adUnits/{adUnitsId}/adUnitMappings
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_mediationGroups_list
+  description: List mediation groups under the specified AdMob account. This method has limited access.
+    If you see a 403 permission den
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationGroups_list
+  method: GET
+  path: /v1beta/accounts/{accountsId}/mediationGroups
+  scopes:
+  - https://www.googleapis.com/auth/admob.readonly
+  mutating: false
+- name: admob_v1beta_accounts_mediationGroups_create
+  description: Create a mediation group under the specific AdMob account. This method has limited access.
+    If you see a 403 permission d
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationGroups_create
+  method: POST
+  path: /v1beta/accounts/{accountsId}/mediationGroups
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_mediationGroups_patch
+  description: Update the specified mediation group under the specified AdMob account. This method has
+    limited access. If you see a 403
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationGroups_patch
+  method: PATCH
+  path: /v1beta/accounts/{accountsId}/mediationGroups/{mediationGroupsId}
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_mediationGroups_mediationAbExperiments_create
+  description: Create an A/B testing experiment for a specified AdMob account and a mediation group. This
+    method has limited access. If
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationGroups_mediationAbExperiments_create
+  method: POST
+  path: /v1beta/accounts/{accountsId}/mediationGroups/{mediationGroupsId}/mediationAbExperiments
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_mediationGroups_mediationAbExperiments_stop
+  description: Stop the mediation A/B experiment and choose a variant. This method has limited access.
+    If you see a 403 permission deni
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_mediationGroups_mediationAbExperiments_stop
+  method: POST
+  path: /v1beta/accounts/{accountsId}/mediationGroups/{mediationGroupsId}/mediationAbExperiments:stop
+  scopes: []
+  mutating: true
+- name: admob_v1beta_accounts_adUnitMappings_batchCreate
+  description: Batch create the ad unit mappings under the specific AdMob account. The maximum allowed
+    batch size is 100. This method h
+  source_operation: openapi/admob-api-v1beta-openapi.yml#accounts_adUnitMappings_batchCreate
+  method: POST
+  path: /v1beta/accounts/{accountsId}/adUnitMappings:batchCreate
+  scopes: []
+  mutating: true

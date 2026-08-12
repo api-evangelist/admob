@@ -1,41 +1,93 @@
-generated: '2026-07-17'
+generated: '2026-08-12'
 method: searched
 source: https://developers.google.com/admob/api/v1/getting-started
 docs: https://developers.google.com/admob/api/rest
+derived_from: openapi/admob-api-v1-openapi.yml, openapi/admob-api-v1beta-openapi.yml
 notes: >-
-  The AdMob API follows Google's standard REST API design conventions (Google
-  API Improvement Proposals). It is a read-only reporting/inventory API, so it
-  exposes no create/update/delete write semantics and documents no
-  idempotency-key contract.
+  The AdMob API follows Google's standard REST design conventions (the Google
+  API Improvement Proposals). v1 is entirely read-only. v1beta adds write
+  methods — creating apps, ad units, ad unit mappings and mediation groups,
+  patching mediation groups, and creating/stopping mediation A/B experiments —
+  and none of them documents an idempotency contract, so a retried write on
+  v1beta can duplicate a resource.
 authentication:
   style: oauth2-bearer
-  detail: OAuth 2.0 access token in the Authorization Bearer header (see authentication/admob-authentication.yml).
+  detail: OAuth 2.0 user access token in the Authorization Bearer header. Service accounts are not supported.
+  cross_link: authentication/admob-authentication.yml
+resource_naming:
+  style: google-resource-names
+  detail: >-
+    Every resource is addressed by a hierarchical name string, e.g.
+    accounts/{publisherId}/adUnits/{adUnitId}. Custom (non-CRUD) methods are
+    expressed with a colon suffix — networkReport:generate,
+    mediationAbExperiments:stop, adUnitMappings:batchCreate.
+  cross_link: data-model/admob-data-model.yml
 idempotency:
   supported: false
-  notes: Read-only API; no documented idempotency-key header.
+  header: null
+  notes: >-
+    No Idempotency-Key header or equivalent parameter is documented, and none
+    appears in the Discovery Document for either version. v1 is read-only so the
+    question is moot there; on v1beta the write methods (accounts_apps_create,
+    accounts_adUnits_create, accounts_adUnits_adUnitMappings_create,
+    accounts_adUnitMappings_batchCreate, accounts_mediationGroups_create,
+    accounts_mediationGroups_mediationAbExperiments_create) are NOT
+    idempotency-protected. Re-read the parent collection before retrying a write.
 pagination:
   style: page-token
   request_params: [pageSize, pageToken]
   response_fields: [nextPageToken]
   notes: >-
-    List methods (accounts.list, accounts.apps.list, accounts.adUnits.list) use
-    Google's standard pageSize/pageToken paging with nextPageToken in responses.
-    Report generation methods stream results.
+    List methods (accounts_list, accounts_apps_list, accounts_adUnits_list,
+    accounts_adSources_list, accounts_adSources_adapters_list,
+    accounts_mediationGroups_list, accounts_adUnits_adUnitMappings_list) use
+    Google's standard pageSize/pageToken paging with nextPageToken in responses,
+    per AIP-158.
+field_masks:
+  supported: true
+  detail: >-
+    accounts_mediationGroups_patch takes an updateMask query parameter naming the
+    fields to change — Google's standard partial-update convention.
+report_streaming:
+  detail: >-
+    The three report methods do not return one document. They stream a sequence
+    of response objects — a single header, then one object per row, then a
+    footer. Consumers must accumulate rows and inspect footer.warnings for
+    partial or delayed data rather than treating the response as an array.
+  operations: [accounts_networkReport_generate, accounts_mediationReport_generate, accounts_campaignReport_generate]
 versioning:
   style: uri-path
-  detail: Version in the path segment (v1, v1beta).
+  detail: Version in the path segment (/v1, /v1beta). v1 is stable and read-only; v1beta carries the write surface.
+  cross_link: lifecycle/admob-lifecycle.yml
+expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  notes: No request-id or trace header is documented for the AdMob API.
 error_envelope:
   format: google.rpc.Status
+  media_type: application/json
   fields: [error.code, error.message, error.status, error.details]
-  notes: >-
-    Errors return the standard Google JSON error envelope (an error object with
-    numeric code, message, canonical status string, and details[]), not RFC 9457
-    problem+json.
+  rfc9457: false
+  cross_link: errors/admob-problem-types.yml
 rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: 429
+  canonical_status: RESOURCE_EXHAUSTED
+  retry_after: false
   notes: >-
-    Enforced via Google API Console per-project quotas; HTTP 429 with
-    RESOURCE_EXHAUSTED on quota overrun. Quotas are managed in the API Console.
+    Per-project quotas published at developers.google.com/admob/api/quotas and
+    enforced through the Google API Console. No RateLimit-* / X-RateLimit-* /
+    Retry-After headers are documented, so the only runtime signal is the 429
+    itself.
+  cross_link: rate-limits/admob-rate-limits.yml
 cross_links:
   authentication: authentication/admob-authentication.yml
   scopes: scopes/admob-scopes.yml
   lifecycle: lifecycle/admob-lifecycle.yml
+  errors: errors/admob-problem-types.yml
+  rate_limits: rate-limits/admob-rate-limits.yml
+  data_model: data-model/admob-data-model.yml
+  sandbox: sandbox/admob-sandbox.yml

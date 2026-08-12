@@ -1,0 +1,84 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the AdMob API (v1)
+  version: 1.0.0
+extends: openapi/admob-api-v1-openapi.yml
+x-provenance:
+  generated: '2026-08-12'
+  method: generated
+  source: >-
+    Enhancements authored by API Evangelist over the pure conversion of Google's
+    AdMob API Discovery Document (https://admob.googleapis.com/$discovery/rest?version=v1,
+    revision 20260731). The error responses below are NOT in Google's Discovery
+    Document — the document carries success responses only. They are added here,
+    in the overlay rather than in the spec, from Google's documented error model:
+    the google.rpc.Status envelope and the 429 RESOURCE_EXHAUSTED behaviour
+    published at https://developers.google.com/admob/api/quotas.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/admob/
+    x-apievangelist-source: https://admob.googleapis.com/$discovery/rest?version=v1
+    x-apievangelist-conversion: Google Discovery Document -> OpenAPI 3.1.0
+- target: $.components.schemas
+  update:
+    GoogleRpcStatus:
+      type: object
+      description: >-
+        Standard Google API error envelope (google.rpc.Status), returned under an
+        "error" member. Documented by the Google API design guide; not present in
+        the AdMob Discovery Document.
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: HTTP-mapped status code.
+        message:
+          type: string
+          description: Developer-facing error message.
+        status:
+          type: string
+          description: Canonical error status, for example INVALID_ARGUMENT or RESOURCE_EXHAUSTED.
+        details:
+          type: array
+          items:
+            type: object
+          description: Machine-readable error details.
+- target: $.paths.*.*.responses
+  update:
+    '400':
+      description: INVALID_ARGUMENT - malformed request or report spec.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'
+    '401':
+      description: UNAUTHENTICATED - missing, expired or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'
+    '403':
+      description: PERMISSION_DENIED - token lacks admob.readonly / admob.report, or the caller cannot access the account.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'
+    '404':
+      description: NOT_FOUND - the addressed resource name does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'
+    '429':
+      description: RESOURCE_EXHAUSTED - per-project quota exceeded (see rate-limits/admob-rate-limits.yml).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'
+    '500':
+      description: INTERNAL - unexpected server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GoogleRpcStatus'

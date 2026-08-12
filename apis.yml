@@ -13,7 +13,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/admob.png
 name: AdMob
-description: "AdMob is Google's mobile app advertising and monetization platform, letting app publishers earn revenue through in-app ads (banner, interstitial, rewarded, rewarded interstitial, native, and app open formats), maximize fill rate and eCPM with AdMob Mediation and open bidding across many ad networks, and understand performance through reporting and user metrics. The AdMob API (admob.googleapis.com, v1) provides programmatic, read-only access to AdMob account data, apps, ad units, mediation configuration, and network/mediation performance reports over REST/JSON, authorized with Google OAuth 2.0 using the admob.readonly and admob.report scopes."
+description: "AdMob is Google's mobile app advertising and monetization platform, letting app publishers earn revenue through in-app ads (banner, interstitial, rewarded, rewarded interstitial, native, and app open formats), maximize fill rate and eCPM with AdMob Mediation and open bidding across many ad networks, and understand performance through reporting and user metrics. The AdMob API (admob.googleapis.com) provides programmatic access to AdMob account data, apps, ad units, mediation configuration, and network, mediation and campaign performance reports over REST/JSON, authorized with Google OAuth 2.0 using the admob.readonly and admob.report scopes. The stable v1 channel is read-only; the v1beta channel carries the entire write surface — creating apps, ad units and ad unit mappings, and creating, patching and A/B testing mediation groups. Google publishes no OpenAPI for AdMob; the machine-readable contract is a Google Discovery Document served by the API host itself."
 url: https://raw.githubusercontent.com/api-evangelist/admob/refs/heads/main/apis.yml
 x-type: company
 x-source: accel-portfolio
@@ -21,7 +21,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-08-12'
 tags:
 - Company
 - Advertising
@@ -34,7 +34,7 @@ tags:
 - AdTech
 apis:
 - name: AdMob API
-  description: "REST/JSON API providing programmatic read-only access to AdMob account data, apps, ad units, mediation configuration, and network/mediation performance reports. Authorized with Google OAuth 2.0."
+  description: "REST/JSON API providing programmatic access to AdMob account data, apps, ad units, mediation configuration, and network, mediation and campaign performance reports. v1 is read-only; v1beta adds the write surface for apps, ad units, ad unit mappings, mediation groups and mediation A/B experiments. Authorized with Google OAuth 2.0 user credentials; service accounts are not supported."
   humanURL: https://developers.google.com/admob/api
   baseURL: https://admob.googleapis.com
   tags:
@@ -51,12 +51,24 @@ apis:
     url: authentication/admob-authentication.yml
   - type: OAuthScopes
     url: scopes/admob-scopes.yml
+  - type: OpenAPI
+    name: AdMob API v1 (OpenAPI 3.1, converted from Google's Discovery Document)
+    url: openapi/admob-api-v1-openapi.yml
+  - type: OpenAPI
+    name: AdMob API v1beta (OpenAPI 3.1, converted from Google's Discovery Document)
+    url: openapi/admob-api-v1beta-openapi.yml
+  - type: Overlay
+    url: overlays/admob-api-v1-overlay.yaml
+  - type: Overlay
+    url: overlays/admob-api-v1beta-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/admob-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/admob-vulnerability-disclosure.yml
 - type: Security
@@ -113,8 +125,27 @@ common:
   url: conventions/admob-conventions.yml
 - type: LLMsTxt
   url: llms/admob-llms.txt
+- type: StatusPage
+  url: https://ads.google.com/status/publisher/
+- type: RateLimits
+  url: rate-limits/admob-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/admob-problem-types.yml
+- type: Plans
+  url: plans/admob-plans-pricing.yml
+- type: Sandbox
+  url: sandbox/admob-sandbox.yml
+- type: DataModel
+  url: data-model/admob-data-model.yml
+- type: Conformance
+  url: conformance/admob-conformance.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Support
+  name: AdMob API Developer Forum
+  url: https://groups.google.com/g/google-admob-api-developer-forum
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 18
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence

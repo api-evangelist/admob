@@ -1,0 +1,88 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  overlays/admob-api-v1-overlay.yaml, https://developers.google.com/admob/api/quotas,
+  Google API design guide error model (google.rpc.Status / google.rpc.Code)
+docs: https://developers.google.com/admob/api/quotas
+format: google-rpc-status
+notes: >-
+  The AdMob API does NOT use RFC 9457 application/problem+json. It returns
+  Google's standard JSON error envelope: a top-level "error" object carrying a
+  numeric HTTP-mapped code, a developer-facing message, a canonical status
+  string from google.rpc.Code, and an optional details[] array. Google's AdMob
+  Discovery Document declares success responses only, so the status list below
+  is derived from Google's cross-API error model plus the one AdMob-specific
+  failure Google documents by name — 429 RESOURCE_EXHAUSTED on quota overrun.
+  Google publishes no AdMob-specific error-code registry.
+envelope:
+  media_type: application/json
+  root_field: error
+  fields:
+  - path: error.code
+    type: integer
+    description: HTTP-mapped status code.
+  - path: error.message
+    type: string
+    description: Developer-facing error message; not intended for end users.
+  - path: error.status
+    type: string
+    description: Canonical status string from google.rpc.Code.
+  - path: error.details
+    type: array
+    description: Machine-readable error details (typed payloads).
+problems:
+- status: 400
+  code: INVALID_ARGUMENT
+  title: Malformed request
+  detail: The request or report spec is malformed — bad dimension/metric, invalid date range, unparseable filter.
+  remediation: Validate the ReportSpec against the OpenAPI schema before sending.
+- status: 401
+  code: UNAUTHENTICATED
+  title: Missing or invalid credentials
+  detail: No OAuth 2.0 access token was supplied, or the token is expired or invalid.
+  remediation: Refresh the access token. Service accounts are not supported by the AdMob API; a user must authorize.
+  source: authentication/admob-authentication.yml
+- status: 403
+  code: PERMISSION_DENIED
+  title: Insufficient scope or account permission
+  detail: >-
+    The access token lacks https://www.googleapis.com/auth/admob.readonly or
+    https://www.googleapis.com/auth/admob.report, the AdMob API is not enabled on
+    the Cloud project, or the authorized user cannot access the AdMob account.
+  remediation: Re-consent with the required scope; enable admob.googleapis.com in the API Console.
+  source: scopes/admob-scopes.yml
+- status: 404
+  code: NOT_FOUND
+  title: Resource not found
+  detail: The addressed hierarchical resource name (accounts/{publisherId}/...) does not exist.
+  remediation: List the parent collection to obtain the exact resource name.
+- status: 429
+  code: RESOURCE_EXHAUSTED
+  title: Quota exceeded
+  detail: >-
+    A per-project quota was exceeded — account reads (900/min), inventory reads
+    (120/min, 172,800/day) or reporting reads (900/min) — or an unpublished
+    back-end processing cost cap was hit.
+  remediation: >-
+    Google's published guidance is client-side rate limiting plus requesting
+    fewer rows (narrower date ranges, fewer dimensions) rather than retrying the
+    same request. No Retry-After header is documented.
+  source: rate-limits/admob-rate-limits.yml
+  documented_by_provider: true
+- status: 500
+  code: INTERNAL
+  title: Internal server error
+  detail: An unexpected server-side failure.
+  remediation: Retry with exponential backoff.
+- status: 503
+  code: UNAVAILABLE
+  title: Service unavailable
+  detail: The service is temporarily unavailable.
+  remediation: Retry with exponential backoff; check https://ads.google.com/status/publisher/ for an AdMob incident.
+rfc9457:
+  conforms: false
+  reason: Responses are application/json with a google.rpc.Status envelope, not application/problem+json.
+cross_links:
+  conventions: conventions/admob-conventions.yml
+  rate_limits: rate-limits/admob-rate-limits.yml
+  lifecycle: lifecycle/admob-lifecycle.yml

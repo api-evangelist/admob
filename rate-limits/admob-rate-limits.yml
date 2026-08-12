@@ -1,0 +1,56 @@
+generated: '2026-08-12'
+method: searched
+source: https://developers.google.com/admob/api/quotas
+docs: https://developers.google.com/admob/api/quotas
+limit_count: 4
+notes: >-
+  Quotas are applied per Google Cloud project and are split into three method
+  classes — account, inventory and reporting. Google publishes the numeric
+  limits but documents no RateLimit-* / X-RateLimit-* / Retry-After response
+  headers for the AdMob API, so the only runtime signal an agent gets is the
+  HTTP 429 with the canonical RESOURCE_EXHAUSTED status in the google.rpc.Status
+  error envelope. Google additionally notes unpublished "back-end processing
+  cost caps" beyond the numbers below.
+limits:
+- scope: per-project
+  method_class: account
+  operations: [accounts_get, accounts_list]
+  window: minute
+  limit: 900
+  unit: read requests
+- scope: per-project
+  method_class: inventory
+  operations: [accounts_apps_list, accounts_adUnits_list, accounts_adSources_list, accounts_adSources_adapters_list, accounts_mediationGroups_list, accounts_adUnits_adUnitMappings_list]
+  window: minute
+  limit: 120
+  unit: read requests
+- scope: per-project
+  method_class: inventory
+  window: day
+  limit: 172800
+  unit: read requests
+- scope: per-project
+  method_class: reporting
+  operations: [accounts_networkReport_generate, accounts_mediationReport_generate, accounts_campaignReport_generate]
+  window: minute
+  limit: 900
+  unit: read requests
+exhaustion:
+  http_status: 429
+  status: RESOURCE_EXHAUSTED
+  envelope: google.rpc.Status (error.code / error.message / error.status)
+  retry_after_header: false
+  guidance: >-
+    Google's published guidance is to introduce client-side rate limiting and to
+    request fewer rows per report — narrower date ranges and fewer dimensions —
+    rather than to retry the same request.
+headers:
+  published: []
+  notes: No rate-limit response headers are documented for the AdMob API.
+quota_increase:
+  process: Request additional daily quota on the AdMob API Developer Forum with a described use case.
+  url: https://groups.google.com/g/google-admob-api-developer-forum
+  console: https://console.cloud.google.com/apis/api/admob.googleapis.com/quotas
+cross_links:
+  conventions: conventions/admob-conventions.yml
+  errors: errors/admob-problem-types.yml

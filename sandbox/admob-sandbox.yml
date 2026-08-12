@@ -1,0 +1,57 @@
+generated: '2026-08-12'
+method: searched
+source: https://developers.google.com/admob/android/test-ads
+docs:
+  android: https://developers.google.com/admob/android/test-ads
+  ios: https://developers.google.com/admob/ios/test-ads
+notes: >-
+  AdMob has no sandbox for the REST management/reporting API — admob.googleapis.com
+  has a single live environment, no test-vs-live key prefixes and no test mode;
+  calls always read the caller's real AdMob account. The sandbox surface AdMob
+  publishes is on the publisher-integration side: a permanent set of Google-owned
+  demo ad unit IDs that always return test ads, plus a test-device mechanism for
+  requesting test ads against your own ad units. Every value below is published
+  verbatim by Google; none is invented.
+api_sandbox:
+  available: false
+  detail: No sandbox host, no test-mode credentials, no test/live key separation for the AdMob API.
+test_mode:
+  mechanisms:
+  - name: Demo ad units
+    detail: >-
+      Google-owned ad unit IDs that always serve test ads and are safe to hard-code
+      during development. All share the publisher prefix ca-app-pub-3940256099942544.
+  - name: Test devices
+    detail: >-
+      Register a device so your own ad units serve test ads. Programmatically via
+      RequestConfiguration.Builder.setTestDeviceIds(...) using the device ID printed
+      to the log, or through the AdMob UI (takes 15 minutes to 24 hours to take
+      effect). Android emulators are automatically treated as test devices.
+demo_ad_units:
+  publisher_prefix: ca-app-pub-3940256099942544
+  android:
+    app_open: ca-app-pub-3940256099942544/9257395921
+    banner_anchored_adaptive: ca-app-pub-3940256099942544/9214589741
+    banner_inline_adaptive: ca-app-pub-3940256099942544/9214589741
+    banner_fixed_size: ca-app-pub-3940256099942544/6300978111
+    interstitial: ca-app-pub-3940256099942544/1033173712
+    rewarded: ca-app-pub-3940256099942544/5224354917
+    rewarded_interstitial: ca-app-pub-3940256099942544/5354046379
+    native: ca-app-pub-3940256099942544/2247696110
+    native_video: ca-app-pub-3940256099942544/1044960115
+  ios:
+    app_open: ca-app-pub-3940256099942544/5575463023
+    banner_anchored_adaptive: ca-app-pub-3940256099942544/2435281174
+    banner_inline_adaptive: ca-app-pub-3940256099942544/2435281174
+    banner_fixed_size: ca-app-pub-3940256099942544/2934735716
+    interstitial: ca-app-pub-3940256099942544/4411468910
+    rewarded: ca-app-pub-3940256099942544/1712485313
+    rewarded_interstitial: ca-app-pub-3940256099942544/6978759866
+    native: ca-app-pub-3940256099942544/3986624511
+    native_video: ca-app-pub-3940256099942544/2521693316
+  demo_app_id:
+    published: false
+    note: Google does not publish a demo App ID on either the Android or iOS test-ads page.
+cross_links:
+  packages: packages/admob-packages.yml
+  authentication: authentication/admob-authentication.yml

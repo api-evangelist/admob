@@ -1,0 +1,28 @@
+generated: '2026-08-12'
+method: generated
+source: >-
+  Grounded in openapi/admob-api-v1-openapi.yml and
+  openapi/admob-api-v1beta-openapi.yml, which are mechanical conversions of
+  Google's own AdMob Discovery Document (revision 20260731). Every operationId
+  referenced by a skill was verified present in the named spec. Google publishes
+  no AGENTS.md or agent skills for AdMob.
+skills:
+- file: admob-earnings-report.md
+  name: Pull an AdMob earnings report
+  api: openapi/admob-api-v1-openapi.yml
+  operations: [accounts_list, accounts_get, accounts_networkReport_generate]
+- file: admob-inventory-audit.md
+  name: Audit an AdMob app and ad-unit inventory
+  api: openapi/admob-api-v1-openapi.yml
+  operations: [accounts_list, accounts_apps_list, accounts_adUnits_list]
+- file: admob-mediation-experiment.md
+  name: Run a mediation A/B experiment (v1beta)
+  api: openapi/admob-api-v1beta-openapi.yml
+  operations:
+  - accounts_list
+  - accounts_adSources_list
+  - accounts_adSources_adapters_list
+  - accounts_mediationGroups_list
+  - accounts_mediationGroups_patch
+  - accounts_mediationGroups_mediationAbExperiments_create
+  - accounts_mediationGroups_mediationAbExperiments_stop

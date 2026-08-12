@@ -1,6 +1,15 @@
-generated: '2026-07-17'
+generated: '2026-08-12'
 method: searched
 source: https://developers.google.com/admob/api/v1/libraries
+notes: >-
+  Two distinct first-party package families. (1) AdMob API client libraries —
+  the REST/JSON management + reporting API at admob.googleapis.com is reached
+  through Google's generated per-API clients (@googleapis/admob) and the
+  aggregate Google API clients (googleapis, google-api-python-client,
+  google/apiclient, google-api-go-client, google-apis-admob_v1). (2) Google
+  Mobile Ads SDK — the publisher-side ad rendering SDK apps embed to actually
+  serve AdMob inventory. Versions and publish dates were read from each
+  registry's metadata endpoint on 2026-08-12.
 packages:
 - language: javascript
   registry: npm
@@ -8,12 +17,20 @@ packages:
   url: https://www.npmjs.com/package/@googleapis/admob
   install: npm install @googleapis/admob
   official: true
+  family: api-client
+  version: 7.0.0
+  published: '2026-08-03'
+  registry_metadata: https://registry.npmjs.org/@googleapis/admob
 - language: javascript
   registry: npm
   name: googleapis
   url: https://www.npmjs.com/package/googleapis
   install: npm install googleapis
   official: true
+  family: api-client
+  version: 174.0.1
+  published: '2026-08-05'
+  registry_metadata: https://registry.npmjs.org/googleapis
   notes: Aggregate Google APIs Node.js client; exposes google.admob('v1').
 - language: go
   registry: pkg.go.dev
@@ -21,18 +38,31 @@ packages:
   url: https://pkg.go.dev/google.golang.org/api/admob/v1
   install: go get google.golang.org/api/admob/v1
   official: true
+  family: api-client
+  version: v0.293.0
+  published: '2026-08-11'
+  registry_metadata: https://proxy.golang.org/google.golang.org/api/@latest
+  notes: Version is that of the parent google-api-go-client module, which vendors admob/v1.
 - language: ruby
   registry: rubygems
   name: google-apis-admob_v1
   url: https://rubygems.org/gems/google-apis-admob_v1
   install: gem install google-apis-admob_v1
   official: true
+  family: api-client
+  version: 0.26.0
+  published: '2026-06-21'
+  registry_metadata: https://rubygems.org/api/v1/gems/google-apis-admob_v1.json
 - language: python
   registry: pypi
   name: google-api-python-client
   url: https://pypi.org/project/google-api-python-client/
   install: pip install google-api-python-client
   official: true
+  family: api-client
+  version: 2.198.0
+  published: '2026-06-25'
+  registry_metadata: https://pypi.org/pypi/google-api-python-client/json
   notes: Aggregate Google APIs Python client; build('admob', 'v1').
 - language: php
   registry: packagist
@@ -40,4 +70,64 @@ packages:
   url: https://packagist.org/packages/google/apiclient
   install: composer require google/apiclient
   official: true
+  family: api-client
+  version: v2.19.4
+  published: '2026-06-29'
+  registry_metadata: https://repo.packagist.org/p2/google/apiclient.json
   notes: Aggregate Google API PHP client covering AdMob v1.
+- language: java
+  registry: maven
+  name: com.google.android.gms:play-services-ads
+  url: https://developers.google.com/admob/android/quick-start
+  install: implementation 'com.google.android.gms:play-services-ads:25.4.0'
+  official: true
+  family: mobile-ads-sdk
+  version: 25.4.0
+  published: '2026-06-17'
+  registry_metadata: https://dl.google.com/android/maven2/com/google/android/gms/play-services-ads/maven-metadata.xml
+  notes: >-
+    Google Mobile Ads SDK for Android. Distributed via Google's Maven repository
+    (maven.google.com), not Maven Central. published is the maven-metadata
+    lastUpdated timestamp, which is the closest dated signal the repository
+    exposes.
+- language: swift
+  registry: cocoapods
+  name: Google-Mobile-Ads-SDK
+  url: https://cocoapods.org/pods/Google-Mobile-Ads-SDK
+  install: pod 'Google-Mobile-Ads-SDK'
+  official: true
+  family: mobile-ads-sdk
+  version: 13.7.0
+  published: '2026-07-22'
+  registry_metadata: https://trunk.cocoapods.org/api/v1/pods/Google-Mobile-Ads-SDK
+  notes: Google Mobile Ads SDK for iOS. Also distributed as a Swift Package.
+- language: dart
+  registry: pub.dev
+  name: google_mobile_ads
+  url: https://pub.dev/packages/google_mobile_ads
+  install: flutter pub add google_mobile_ads
+  official: true
+  family: mobile-ads-sdk
+  version: 9.1.0
+  published: '2026-08-11'
+  registry_metadata: https://pub.dev/api/packages/google_mobile_ads
+  notes: Google Mobile Ads SDK plugin for Flutter.
+- language: csharp
+  registry: github-releases
+  name: googleads-mobile-unity
+  url: https://github.com/googleads/googleads-mobile-unity/releases
+  install: Import the GoogleMobileAds .unitypackage from the GitHub release
+  official: true
+  family: mobile-ads-sdk
+  version: v11.3.0
+  published: '2026-07-19'
+  registry_metadata: https://api.github.com/repos/googleads/googleads-mobile-unity/releases/latest
+  notes: >-
+    Google Mobile Ads Unity plugin. Distributed as a .unitypackage attached to
+    GitHub releases rather than through a package registry, so there is no
+    registry metadata endpoint; version and date are read from the release.
+samples:
+- name: googleads-admob-api-samples
+  url: https://github.com/googleads/googleads-admob-api-samples
+  official: true
+  languages: [java, php, python, dotnet, ruby]

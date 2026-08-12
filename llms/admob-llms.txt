@@ -1,27 +1,50 @@
 # AdMob
 
-> AdMob is Google's mobile app advertising and monetization platform. The AdMob API (admob.googleapis.com, v1) provides programmatic, read-only access to AdMob account data, apps, ad units, mediation configuration, and network/mediation performance reports over REST/JSON, authorized with Google OAuth 2.0 (scopes: admob.readonly, admob.report).
+> AdMob is Google's mobile app advertising and monetization platform. The AdMob API (admob.googleapis.com) provides programmatic access to AdMob account data, apps, ad units, mediation configuration and performance reports over REST/JSON, authorized with Google OAuth 2.0 (scopes: admob.readonly, admob.report). v1 is stable and read-only; v1beta carries the entire write surface — apps, ad units, ad unit mappings, mediation groups and mediation A/B experiments. Google publishes no OpenAPI; the machine-readable contract is a Google Discovery Document served by the API host itself.
 
 ## APIs
-- [AdMob API](https://developers.google.com/admob/api): REST/JSON read-only access to AdMob accounts, apps, ad units, mediation config, and reports. Base URL https://admob.googleapis.com.
+- [AdMob API](https://developers.google.com/admob/api): REST/JSON access to AdMob accounts, apps, ad units, mediation config and reports. Base URL https://admob.googleapis.com.
+
+## Specs
+- [OpenAPI 3.1 — v1](openapi/admob-api-v1-openapi.yml): 6 operations, 28 schemas. Converted by API Evangelist from Google's Discovery Document (revision 20260731); read-only.
+- [OpenAPI 3.1 — v1beta](openapi/admob-api-v1beta-openapi.yml): 19 operations, 49 schemas. Same conversion; includes the write methods.
+- [Discovery Document — v1](discovery/admob-api-v1.json): Google's first-party contract, verbatim, from https://admob.googleapis.com/$discovery/rest?version=v1
+- [Discovery Document — v1beta](discovery/admob-api-v1beta.json): verbatim, from https://admob.googleapis.com/$discovery/rest?version=v1beta
+- [Overlay — v1](overlays/admob-api-v1-overlay.yaml) and [Overlay — v1beta](overlays/admob-api-v1beta-overlay.yaml): API Evangelist enhancements, including the error responses Google's Discovery Document omits.
 
 ## Docs
-- [Getting Started](https://developers.google.com/admob/api/v1/getting-started): Set up a project, enable the API, and make a first call.
+- [Getting Started](https://developers.google.com/admob/api/v1/getting-started): Set up a project, enable the API, make a first call.
 - [API Reference (REST)](https://developers.google.com/admob/api/rest): Full method and resource reference.
-- [OAuth setup](https://developers.google.com/admob/api/v1/auth): Authorization with Google OAuth 2.0.
+- [OAuth setup](https://developers.google.com/admob/api/v1/auth): Authorization with Google OAuth 2.0. Service accounts are not supported.
+- [Quotas](https://developers.google.com/admob/api/quotas): Published per-project rate limits.
 - [Client libraries](https://developers.google.com/admob/api/v1/libraries): Official Google API client libraries.
-- [Release notes](https://developers.google.com/admob/api/release-notes): Dated changelog for v1 and v1beta.
+- [Release notes](https://developers.google.com/admob/api/release-notes): Dated changelog for v1 and v1beta (no entry after 2023-09-05).
+- [Test ads — Android](https://developers.google.com/admob/android/test-ads) and [iOS](https://developers.google.com/admob/ios/test-ads): Published demo ad unit IDs.
+- [Developer forum](https://groups.google.com/g/google-admob-api-developer-forum): Support and quota-increase requests.
 
 ## Artifacts
-- [Authentication](authentication/admob-authentication.yml): OAuth 2.0 profile.
+- [Authentication](authentication/admob-authentication.yml): OAuth 2.0 profile; no service-account support.
 - [OAuth scopes](scopes/admob-scopes.yml): admob.readonly and admob.report.
-- [Packages / SDKs](packages/admob-packages.yml): Official client libraries.
-- [Conventions](conventions/admob-conventions.yml): Pagination, error envelope, versioning.
-- [Lifecycle](lifecycle/admob-lifecycle.yml): Versioning and deprecation.
-- [Changelog](changelog/admob-changelog.yml): Recent release entries.
+- [Packages / SDKs](packages/admob-packages.yml): API client libraries and the Google Mobile Ads SDKs, with versions and publish dates.
+- [Conventions](conventions/admob-conventions.yml): Resource names, page-token pagination, report streaming, error envelope, no idempotency.
+- [Errors](errors/admob-problem-types.yml): google.rpc.Status envelope; not RFC 9457.
+- [Rate limits](rate-limits/admob-rate-limits.yml): 900/min account, 120/min + 172,800/day inventory, 900/min reporting; 429 RESOURCE_EXHAUSTED, no Retry-After.
+- [Plans / pricing](plans/admob-plans-pricing.yml): No plans — revenue share, API free with quota.
+- [Sandbox](sandbox/admob-sandbox.yml): No API sandbox; published demo ad unit IDs for the mobile SDK.
+- [Data model](data-model/admob-data-model.yml): PublisherAccount → App → AdUnit → AdUnitMapping, MediationGroup → MediationAbExperiment.
+- [Lifecycle](lifecycle/admob-lifecycle.yml): Versioning, deprecation, status dashboard.
+- [Changelog](changelog/admob-changelog.yml): Dated release entries.
+- [Conformance](conformance/admob-conformance.yml): OAuth2/OIDC yes; RFC 9457, idempotency, Sunset headers no.
+- [MCP](mcp/admob-mcp.yml): Candidate tool list derived from the spec. Google ships no first-party MCP server.
+- [Agent skills](skills/_index.yml): Earnings report, inventory audit, mediation A/B experiment.
+- [Agentic access](agentic-access/admob-agentic-access.yml): Recommended x-agentic-access contracts for all 25 operations.
+- [Well-known](well-known/admob-well-known.yml): Probe record. No agent card is served on any host.
+- [Domain security](security/admob-domain-security.yml), [Vulnerability disclosure](security/admob-vulnerability-disclosure.yml), [Trust center](security/admob-trust-center.yml)
 
 ## Links
 - [Website](https://admob.google.com)
+- [Status dashboard](https://ads.google.com/status/publisher/)
 - [Google Ads Developer Blog](https://ads-developers.googleblog.com/)
 - [Support](https://support.google.com/admob)
 - [GitHub (googleads)](https://github.com/googleads)
+- [API samples](https://github.com/googleads/googleads-admob-api-samples)

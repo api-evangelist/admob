@@ -1,0 +1,28 @@
+generated: '2026-08-12'
+method: searched
+source: https://developers.google.com/admob/api/quotas
+docs: https://admob.google.com/home/
+plan_count: 0
+notes: >-
+  AdMob publishes no priced API plans or tiers. AdMob is a publisher
+  monetization product: app publishers are paid by Google out of a revenue
+  share on the ads served, they do not pay Google a subscription, and there is
+  no paid tier of the AdMob API. Access to the AdMob API
+  (admob.googleapis.com) is free to any AdMob publisher who enables the API on
+  a Google Cloud project; the only consumption control is the published
+  per-project quota (see rate-limits/admob-rate-limits.yml), and additional
+  daily quota is requested through the developer forum rather than purchased.
+  Google does not publish an authoritative AdMob revenue-share percentage page
+  the way it does for AdSense, so no revenue-share figure is recorded here.
+plans: []
+commercial_model:
+  type: revenue-share
+  direction: provider-pays-customer
+  api_billing: none
+  api_access: Free with per-project quota; enable admob.googleapis.com in the Google API Console.
+  signup: https://admob.google.com/home/get-started/
+evidence:
+- url: https://developers.google.com/admob/api/quotas
+  note: Documents quota, not price; no billing or metering for AdMob API calls.
+- url: https://admob.google.com/home/
+  note: Product site markets earnings to publishers; no pricing/plans page exists.

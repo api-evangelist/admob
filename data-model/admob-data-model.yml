@@ -1,0 +1,133 @@
+generated: '2026-08-12'
+method: derived
+source: openapi/admob-api-v1beta-openapi.yml, openapi/admob-api-v1-openapi.yml
+notes: >-
+  Entity graph derived from the AdMob API OpenAPI (converted from Google's own
+  Discovery Document, revision 20260731). Relationships come from schema $ref
+  links and from AdMob's resource-name hierarchy — every AdMob resource is
+  addressed by a hierarchical `name` string, so parentage is expressed in the
+  identifier itself rather than in foreign-key fields. Wrapper/response schemas
+  are not modelled as entities.
+identifiers:
+  style: google-resource-names
+  detail: >-
+    Resources are addressed by hierarchical resource names, not opaque ids —
+    accounts/{publisherId}, accounts/{publisherId}/apps/{appId},
+    accounts/{publisherId}/adUnits/{adUnitId},
+    accounts/{publisherId}/mediationGroups/{mediationGroupId},
+    accounts/{publisherId}/adUnits/{adUnitId}/adUnitMappings/{adUnitMappingId},
+    accounts/{publisherId}/adSources/{adSourceId}/adapters/{adapterId}.
+  publisher_id_format: 'pub-XXXXXXXXXXXXXXXX'
+  ad_unit_public_id_format: 'ca-app-pub-XXXXXXXXXXXXXXXX/NNNNNNNNNN'
+entities:
+- name: PublisherAccount
+  root: true
+  description: An AdMob publisher account — the top of the resource hierarchy.
+  key_fields: [name, publisherId, currencyCode, reportingTimeZone]
+  operations: [accounts_get, accounts_list]
+- name: App
+  description: A mobile app registered in an AdMob account, linked or manually added.
+  key_fields: [name, appId, platform, appApprovalState, manualAppInfo, linkedAppInfo]
+  operations: [accounts_apps_list, accounts_apps_create]
+- name: AdUnit
+  description: An ad placement within an app, of one ad format.
+  key_fields: [name, adUnitId, appId, displayName, adFormat, mediationEnabled, rewardSettings]
+  operations: [accounts_adUnits_list, accounts_adUnits_create]
+- name: AdSource
+  description: A third-party ad network available for mediation.
+  key_fields: [name, adSourceId, title]
+  operations: [accounts_adSources_list]
+- name: Adapter
+  description: A mediation adapter for an ad source, with the config metadata it requires.
+  key_fields: [name, adapterId, title, platform, formats, adapterConfigMetadata]
+  operations: [accounts_adSources_adapters_list]
+- name: AdUnitMapping
+  description: Binds an AdMob ad unit to a third-party ad source's own ad unit for mediation.
+  key_fields: [name, adUnitMappingId, adUnitConfigurations, displayName, state]
+  operations: [accounts_adUnits_adUnitMappings_list, accounts_adUnits_adUnitMappings_create, accounts_adUnitMappings_batchCreate]
+- name: MediationGroup
+  description: A mediation waterfall — a targeted group of mediation lines across ad sources.
+  key_fields: [name, mediationGroupId, displayName, state, targeting, mediationGroupLines]
+  operations: [accounts_mediationGroups_list, accounts_mediationGroups_create, accounts_mediationGroups_patch]
+- name: MediationAbExperiment
+  description: An A/B experiment over a mediation group's lines (control vs treatment).
+  key_fields: [name, experimentId, displayName, state, controlMediationLines, treatmentMediationLines]
+  operations: [accounts_mediationGroups_mediationAbExperiments_create, accounts_mediationGroups_mediationAbExperiments_stop]
+- name: Report
+  description: >-
+    Not a stored resource — network, mediation and campaign reports are generated
+    on demand from a ReportSpec and streamed back as header/rows/footer.
+  key_fields: [reportSpec, header, rows, footer]
+  operations: [accounts_networkReport_generate, accounts_mediationReport_generate, accounts_campaignReport_generate]
+relationships:
+- from: PublisherAccount
+  to: App
+  type: has_many
+  via: resource-name parent (accounts/{publisherId}/apps/{appId})
+- from: PublisherAccount
+  to: AdUnit
+  type: has_many
+  via: resource-name parent (accounts/{publisherId}/adUnits/{adUnitId})
+- from: PublisherAccount
+  to: AdSource
+  type: has_many
+  via: resource-name parent (accounts/{publisherId}/adSources/{adSourceId})
+- from: PublisherAccount
+  to: MediationGroup
+  type: has_many
+  via: resource-name parent (accounts/{publisherId}/mediationGroups/{mediationGroupId})
+- from: App
+  to: AdUnit
+  type: has_many
+  via: AdUnit.appId
+- from: AdSource
+  to: Adapter
+  type: has_many
+  via: resource-name parent (accounts/{p}/adSources/{adSourceId}/adapters/{adapterId})
+- from: AdUnit
+  to: AdUnitMapping
+  type: has_many
+  via: resource-name parent (accounts/{p}/adUnits/{adUnitId}/adUnitMappings/{id})
+- from: MediationGroup
+  to: MediationAbExperiment
+  type: has_many
+  via: resource-name parent (accounts/{p}/mediationGroups/{id}/mediationAbExperiments/{experimentId})
+- from: MediationAbExperiment
+  to: MediationGroupMediationGroupLine
+  type: has_many
+  via: controlMediationLines / treatmentMediationLines ($ref)
+- from: App
+  to: AppManualAppInfo
+  type: has_one
+  via: manualAppInfo ($ref)
+- from: App
+  to: AppLinkedAppInfo
+  type: has_one
+  via: linkedAppInfo ($ref)
+- from: AdUnit
+  to: AdUnitRewardSettings
+  type: has_one
+  via: rewardSettings ($ref)
+- from: MediationGroup
+  to: MediationGroupTargeting
+  type: has_one
+  via: targeting ($ref)
+- from: Adapter
+  to: AdapterAdapterConfigMetadata
+  type: has_many
+  via: adapterConfigMetadata ($ref)
+- from: NetworkReportSpec
+  to: DateRange
+  type: has_one
+  via: dateRange ($ref)
+- from: MediationReportSpec
+  to: DateRange
+  type: has_one
+  via: dateRange ($ref)
+- from: CampaignReportSpec
+  to: DateRange
+  type: has_one
+  via: dateRange ($ref)
+cross_links:
+  conventions: conventions/admob-conventions.yml
+  errors: errors/admob-problem-types.yml
