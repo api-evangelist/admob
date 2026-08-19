@@ -1,0 +1,903 @@
+{
+  "item": [
+    {
+      "id": "d789e635-98a9-45ba-970b-01220a7bf487",
+      "name": "accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "879a2386-15b6-4bc8-8293-25d2694fb3db",
+          "name": "Gets information about the specified AdMob publisher account.",
+          "request": {
+            "name": "Gets information about the specified AdMob publisher account.",
+            "description": {
+              "content": "Gets information about the specified AdMob publisher account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                ":accountsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc51878b-e4c8-4eac-a22d-760526830326",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    ":accountsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"reportingTimeZone\": \"string\",\n  \"publisherId\": \"string\",\n  \"currencyCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b55e51cb-81d3-4051-8c85-1e4955b37306",
+          "name": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https",
+          "request": {
+            "name": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https",
+            "description": {
+              "content": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Maximum number of accounts to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that the system should return the next page of data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "be79ff5e-4305-4e86-b02d-05c21caa2c47",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextPageToken\": \"string\",\n  \"account\": [\n    {\n      \"name\": \"string\",\n      \"reportingTimeZone\": \"string\",\n      \"publisherId\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"reportingTimeZone\": \"string\",\n      \"publisherId\": \"string\",\n      \"currencyCode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "82597f26-253d-4976-b144-c24e52e0b47f",
+      "name": "adUnits",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e22ce74e-db64-4605-9565-3532258b5b2a",
+          "name": "List the ad units under the specified AdMob account.",
+          "request": {
+            "name": "List the ad units under the specified AdMob account.",
+            "description": {
+              "content": "List the ad units under the specified AdMob account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                ":accountsId",
+                "adUnits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListAdUnitsResponse`; indicates that this is a continuation of a prior `ListAdUnits` call, and that the system should return the next page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "42e0fe27-1401-49aa-82fc-b0027d1993e3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    ":accountsId",
+                    "adUnits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adUnits\": [\n    {\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"adTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"adUnitId\": \"string\",\n      \"adFormat\": \"string\"\n    },\n    {\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"adTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"name\": \"string\",\n      \"adUnitId\": \"string\",\n      \"adFormat\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "53a93445-df38-4109-9cdc-c25b48619d26",
+      "name": "apps",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "752052fc-c868-4102-8cb9-36affd38c3ed",
+          "name": "List the apps under the specified AdMob account.",
+          "request": {
+            "name": "List the apps under the specified AdMob account.",
+            "description": {
+              "content": "List the apps under the specified AdMob account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                ":accountsId",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListAppsResponse`; indicates that this is a continuation of a prior `ListApps` call, and that the system should return the next page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3d4607b1-3e4f-4293-b7b4-09a90cea0309",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    ":accountsId",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apps\": [\n    {\n      \"appId\": \"string\",\n      \"linkedAppInfo\": {\n        \"displayName\": \"string\",\n        \"appStoreId\": \"string\"\n      },\n      \"manualAppInfo\": {\n        \"displayName\": \"string\"\n      },\n      \"platform\": \"string\",\n      \"appApprovalState\": \"IN_REVIEW\",\n      \"name\": \"string\"\n    },\n    {\n      \"appId\": \"string\",\n      \"linkedAppInfo\": {\n        \"displayName\": \"string\",\n        \"appStoreId\": \"string\"\n      },\n      \"manualAppInfo\": {\n        \"displayName\": \"string\"\n      },\n      \"platform\": \"string\",\n      \"appApprovalState\": \"IN_REVIEW\",\n      \"name\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5e6ae69e-a393-4fb2-93c6-034b9214f21e",
+      "name": "mediationReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3721672f-71ba-426b-82db-77b1d603cfdb",
+          "name": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streamin",
+          "request": {
+            "name": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streamin",
+            "description": {
+              "content": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                ":accountsId",
+                "mediationReport:generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dimensions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dimensionFilters\": [\n      {\n        \"dimension\": \"<string>\",\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      {\n        \"dimension\": \"<string>\",\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      }\n    ],\n    \"maxReportRows\": \"<integer>\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      },\n      \"endDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"dimension\": \"<string>\",\n        \"order\": \"<string>\",\n        \"metric\": \"<string>\"\n      },\n      {\n        \"dimension\": \"<string>\",\n        \"order\": \"<string>\",\n        \"metric\": \"<string>\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"currencyCode\": \"<string>\",\n      \"languageCode\": \"<string>\"\n    },\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d94a4fd5-2dfa-4008-824c-ae7d5e0a8f1a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    ":accountsId",
+                    "mediationReport:generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"MATCHED_REQUESTS\",\n      \"MATCH_RATE\"\n    ],\n    \"dimensions\": [\n      \"DATE\",\n      \"AD_SOURCE\"\n    ],\n    \"dimensionFilters\": [\n      {\n        \"dimension\": \"APP\",\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      },\n      {\n        \"dimension\": \"GMA_SDK_VERSION\",\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      }\n    ],\n    \"maxReportRows\": 4525,\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 1449,\n        \"year\": 8759,\n        \"month\": 1990\n      },\n      \"endDate\": {\n        \"day\": 208,\n        \"year\": 9575,\n        \"month\": 3460\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"dimension\": \"MEDIATION_GROUP\",\n        \"order\": \"SORT_ORDER_UNSPECIFIED\",\n        \"metric\": \"METRIC_UNSPECIFIED\"\n      },\n      {\n        \"dimension\": \"WEEK\",\n        \"order\": \"ASCENDING\",\n        \"metric\": \"METRIC_UNSPECIFIED\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"currencyCode\": \"string\",\n      \"languageCode\": \"string\"\n    },\n    \"timeZone\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"footer\": {\n    \"warnings\": [\n      {\n        \"type\": \"TYPE_UNSPECIFIED\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"OTHER\",\n        \"description\": \"string\"\n      }\n    ],\n    \"matchingRowCount\": \"string\"\n  },\n  \"header\": {\n    \"reportingTimeZone\": \"string\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 2143,\n        \"year\": 7646,\n        \"month\": 8232\n      },\n      \"endDate\": {\n        \"day\": 3896,\n        \"year\": 2066,\n        \"month\": 6127\n      }\n    },\n    \"localizationSettings\": {\n      \"currencyCode\": \"string\",\n      \"languageCode\": \"string\"\n    }\n  },\n  \"row\": {\n    \"dimensionValues\": {\n      \"key_0\": {\n        \"displayLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    \"metricValues\": {\n      \"key_0\": {\n        \"integerValue\": \"string\",\n        \"microsValue\": \"string\",\n        \"doubleValue\": 7084.358068520564\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "17e35976-bb65-4ddf-a4f6-e01484474b20",
+      "name": "networkReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7b29b78e-6d14-4cd7-a2ff-bca579ddd915",
+          "name": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming ",
+          "request": {
+            "name": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming ",
+            "description": {
+              "content": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "accounts",
+                ":accountsId",
+                "networkReport:generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dimensions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      }\n    ],\n    \"maxReportRows\": \"<integer>\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      },\n      \"endDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"metric\": \"<string>\",\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\"\n      },\n      {\n        \"metric\": \"<string>\",\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"currencyCode\": \"<string>\",\n      \"languageCode\": \"<string>\"\n    },\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea494528-ddeb-45b5-a938-f27ca549019d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "accounts",
+                    ":accountsId",
+                    "networkReport:generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"MATCHED_REQUESTS\",\n      \"IMPRESSION_RPM\"\n    ],\n    \"dimensions\": [\n      \"MONTH\",\n      \"MOBILE_OS_VERSION\"\n    ],\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"APP_VERSION_NAME\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"DATE\"\n      }\n    ],\n    \"maxReportRows\": 3903,\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 1269,\n        \"year\": 4333,\n        \"month\": 5526\n      },\n      \"endDate\": {\n        \"day\": 2158,\n        \"year\": 6291,\n        \"month\": 4599\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"metric\": \"IMPRESSIONS\",\n        \"order\": \"ASCENDING\",\n        \"dimension\": \"APP\"\n      },\n      {\n        \"metric\": \"IMPRESSIONS\",\n        \"order\": \"DESCENDING\",\n        \"dimension\": \"APP\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"currencyCode\": \"string\",\n      \"languageCode\": \"string\"\n    },\n    \"timeZone\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"row\": {\n    \"dimensionValues\": {\n      \"key_0\": {\n        \"displayLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    \"metricValues\": {\n      \"key_0\": {\n        \"integerValue\": \"string\",\n        \"microsValue\": \"string\",\n        \"doubleValue\": 351.9141553321403\n      },\n      \"key_1\": {\n        \"integerValue\": \"string\",\n        \"microsValue\": \"string\",\n        \"doubleValue\": 4950.156490298422\n      }\n    }\n  },\n  \"header\": {\n    \"reportingTimeZone\": \"string\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 6985,\n        \"year\": 6796,\n        \"month\": 1329\n      },\n      \"endDate\": {\n        \"day\": 7779,\n        \"year\": 6042,\n        \"month\": 9588\n      }\n    },\n    \"localizationSettings\": {\n      \"currencyCode\": \"string\",\n      \"languageCode\": \"string\"\n    }\n  },\n  \"footer\": {\n    \"warnings\": [\n      {\n        \"type\": \"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY\",\n        \"description\": \"string\"\n      }\n    ],\n    \"matchingRowCount\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://admob.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3522259f-b507-4df6-bc86-fbb4990a9867",
+    "name": "AdMob API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AdMob API allows publishers to programmatically get information about their AdMob account.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

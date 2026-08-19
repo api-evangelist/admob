@@ -1,0 +1,2700 @@
+{
+  "item": [
+    {
+      "id": "79e9f6aa-bc63-437a-b337-d1b664edb6f0",
+      "name": "accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "276d7347-8468-4f7c-a36c-d24c21d9d3aa",
+          "name": "Gets information about the specified AdMob publisher account.",
+          "request": {
+            "name": "Gets information about the specified AdMob publisher account.",
+            "description": {
+              "content": "Gets information about the specified AdMob publisher account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd480ced-20d6-49b8-9280-b457a336a414",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"publisherId\": \"string\",\n  \"reportingTimeZone\": \"string\",\n  \"currencyCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc871666-0a8b-4b6a-9e64-986fa34c4fcd",
+          "name": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https",
+          "request": {
+            "name": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https",
+            "description": {
+              "content": "Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Maximum number of accounts to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that the system should return the next page of data."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "514b1f74-d2ef-45cf-ae0d-432a35fda1aa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextPageToken\": \"string\",\n  \"account\": [\n    {\n      \"name\": \"string\",\n      \"publisherId\": \"string\",\n      \"reportingTimeZone\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"publisherId\": \"string\",\n      \"reportingTimeZone\": \"string\",\n      \"currencyCode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cf2dbceb-5e95-4bb9-b3ac-7a6c10e0888a",
+      "name": "adSources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3357529-0c7a-485d-ae4b-df6ebdee27cb",
+          "name": "List the ad sources.",
+          "request": {
+            "name": "List the ad sources.",
+            "description": {
+              "content": "List the ad sources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adSources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of ad sources to return. If unspecified or 0, at most 10,000 ad sources will be returned. The maximum value is 20,000; values above 10,000 will be coerced to 20,000."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "A page token, received from a previous `ListAdSources` call. Provide this to retrieve the subsequent page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns this collection of ad sources. Format: accounts/{publisher_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7e83d555-1c16-4688-ace3-344de79c2bc4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adSources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns this collection of ad sources. Format: accounts/{publisher_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adSources\": [\n    {\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"adSourceId\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"adSourceId\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d64483c3-7001-4ade-b0e9-0c469f7e63ca",
+      "name": "adUnitMappings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72aecc66-10f6-44ab-9883-1d7f0ac687a3",
+          "name": "Create an ad unit mapping under the specific AdMob account and ad unit. This method has limited access. If you see a 403",
+          "request": {
+            "name": "Create an ad unit mapping under the specific AdMob account and ad unit. This method has limited access. If you see a 403",
+            "description": {
+              "content": "Create an ad unit mapping under the specific AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adUnits",
+                ":adUnitsId",
+                "adUnitMappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns the ad unit mapping. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"adapterId\": \"<int64>\",\n  \"adUnitConfigurations\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f16ffe1-a0e4-4776-8ada-bec3ba1a5bfc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adUnits",
+                    ":adUnitsId",
+                    "adUnitMappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns the ad unit mapping. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"adapterId\": \"<int64>\",\n  \"adUnitConfigurations\": {\n    \"key_0\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapterId\": \"string\",\n  \"state\": \"ENABLED\",\n  \"adUnitConfigurations\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"name\": \"string\",\n  \"displayName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c3e42a5-cb7b-4288-9351-1ecf721753cf",
+          "name": "List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 pe",
+          "request": {
+            "name": "List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 pe",
+            "description": {
+              "content": "List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adUnits",
+                ":adUnitsId",
+                "adUnitMappings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "A page token, received from a previous `ListAdUnitMappings` call. Provide this to retrieve the subsequent page."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of ad unit mappings to return. If unspecified or 0, at most 10,000 ad unit mappings will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "The filter string that uses [EBNF grammar syntax](https://google.aip.dev/assets/misc/ebnf-filtering.txt). Possible field to filter by is: - \"DISPLAY_NAME\" Possible filter function is: - `IN`: Used to filter fields that represent a singleton including \"DISPLAY_NAME\". The filter functions can be added together using `AND`. `OR` functionality is not supported. Example: filter: IN(DISPLAY_NAME, \"Test Ad Unit Mapping 1\", \"Test Ad Unit Mapping 2\")"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns this collection of ad unit mappings. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4daa0918-30df-4557-98c0-abf5e2218f86",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adUnits",
+                    ":adUnitsId",
+                    "adUnitMappings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns this collection of ad unit mappings. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextPageToken\": \"string\",\n  \"adUnitMappings\": [\n    {\n      \"adapterId\": \"string\",\n      \"state\": \"STATE_UNSPECIFIED\",\n      \"adUnitConfigurations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\"\n    },\n    {\n      \"adapterId\": \"string\",\n      \"state\": \"ENABLED\",\n      \"adUnitConfigurations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c485e39f-de25-4d29-90b0-5ef02f4e67d7",
+          "name": "Batch create the ad unit mappings under the specific AdMob account. The maximum allowed batch size is 100. This method h",
+          "request": {
+            "name": "Batch create the ad unit mappings under the specific AdMob account. The maximum allowed batch size is 100. This method h",
+            "description": {
+              "content": "Batch create the ad unit mappings under the specific AdMob account. The maximum allowed batch size is 100. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adUnitMappings:batchCreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The AdMob account which owns this collection of ad unit mappings. Format: accounts/{publisher_id} See https://support.google.com/admob/answer/2784578 for instructions on how to find your AdMob publisher ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"parent\": \"<string>\",\n      \"adUnitMapping\": {\n        \"adapterId\": \"<int64>\",\n        \"adUnitConfigurations\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\",\n          \"key_4\": \"<string>\"\n        },\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    },\n    {\n      \"parent\": \"<string>\",\n      \"adUnitMapping\": {\n        \"adapterId\": \"<int64>\",\n        \"adUnitConfigurations\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"name\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca294546-0d97-48fa-9b4c-aa8041994b49",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adUnitMappings:batchCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The AdMob account which owns this collection of ad unit mappings. Format: accounts/{publisher_id} See https://support.google.com/admob/answer/2784578 for instructions on how to find your AdMob publisher ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"parent\": \"string\",\n      \"adUnitMapping\": {\n        \"adapterId\": \"string\",\n        \"adUnitConfigurations\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"name\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"parent\": \"string\",\n      \"adUnitMapping\": {\n        \"adapterId\": \"string\",\n        \"adUnitConfigurations\": {\n          \"key_0\": \"string\"\n        },\n        \"name\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adUnitMappings\": [\n    {\n      \"adapterId\": \"string\",\n      \"state\": \"STATE_UNSPECIFIED\",\n      \"adUnitConfigurations\": {\n        \"key_0\": \"string\"\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\"\n    },\n    {\n      \"adapterId\": \"string\",\n      \"state\": \"ENABLED\",\n      \"adUnitConfigurations\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "912dabd5-3d86-4aaf-8137-47d2125c4a5e",
+      "name": "adUnits",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0ed90cc-6d07-453c-9551-8e56c8566931",
+          "name": "List the ad units under the specified AdMob account.",
+          "request": {
+            "name": "List the ad units under the specified AdMob account.",
+            "description": {
+              "content": "List the ad units under the specified AdMob account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adUnits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListAdUnitsResponse`; indicates that this is a continuation of a prior `ListAdUnits` call, and that the system should return the next page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb5ecd54-e2d4-45e7-a867-c70feee987bd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adUnits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adUnits\": [\n    {\n      \"appId\": \"string\",\n      \"adFormat\": \"string\",\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"adTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rewardSettings\": {\n        \"unitAmount\": \"string\",\n        \"unitType\": \"string\"\n      },\n      \"adUnitId\": \"string\"\n    },\n    {\n      \"appId\": \"string\",\n      \"adFormat\": \"string\",\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"adTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rewardSettings\": {\n        \"unitAmount\": \"string\",\n        \"unitType\": \"string\"\n      },\n      \"adUnitId\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b896d21-7fd4-4336-b9aa-083243caed8e",
+          "name": "Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied",
+          "request": {
+            "name": "Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied",
+            "description": {
+              "content": "Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adUnits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to create the specified ad unit for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"adFormat\": \"<string>\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"adTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardSettings\": {\n    \"unitAmount\": \"<int64>\",\n    \"unitType\": \"<string>\"\n  },\n  \"adUnitId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b9340fc-032a-4d34-951e-145b61b55f21",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adUnits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to create the specified ad unit for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"<string>\",\n  \"adFormat\": \"<string>\",\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"adTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewardSettings\": {\n    \"unitAmount\": \"string\",\n    \"unitType\": \"string\"\n  },\n  \"adUnitId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appId\": \"string\",\n  \"adFormat\": \"string\",\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"adTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"rewardSettings\": {\n    \"unitAmount\": \"string\",\n    \"unitType\": \"string\"\n  },\n  \"adUnitId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "aab4bf97-15ec-4cc2-a80f-c26811277af3",
+      "name": "adapters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81b08922-608f-4e9b-a535-11b83798c2d6",
+          "name": "List the adapters of the ad source.",
+          "request": {
+            "name": "List the adapters of the ad source.",
+            "description": {
+              "content": "List the adapters of the ad source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "adSources",
+                ":adSourcesId",
+                "adapters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of adapters to return. If unspecified or 0, at most 10,000 adapters will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "A page token, received from a previous `ListAdapters` call. Provide this to retrieve the subsequent page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns this collection of adapters. Format: accounts/{publisher_id}/adSources/{ad_source_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6114f4b8-7432-4bc9-892a-3598b1397e68",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "adSources",
+                    ":adSourcesId",
+                    "adapters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns this collection of adapters. Format: accounts/{publisher_id}/adSources/{ad_source_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adapters\": [\n    {\n      \"name\": \"string\",\n      \"platform\": \"string\",\n      \"adapterId\": \"string\",\n      \"formats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"adapterConfigMetadata\": [\n        {\n          \"isRequired\": true,\n          \"adapterConfigMetadataId\": \"string\",\n          \"adapterConfigMetadataLabel\": \"string\"\n        },\n        {\n          \"isRequired\": false,\n          \"adapterConfigMetadataId\": \"string\",\n          \"adapterConfigMetadataLabel\": \"string\"\n        }\n      ],\n      \"title\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"platform\": \"string\",\n      \"adapterId\": \"string\",\n      \"formats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"adapterConfigMetadata\": [\n        {\n          \"isRequired\": false,\n          \"adapterConfigMetadataId\": \"string\",\n          \"adapterConfigMetadataLabel\": \"string\"\n        },\n        {\n          \"isRequired\": true,\n          \"adapterConfigMetadataId\": \"string\",\n          \"adapterConfigMetadataLabel\": \"string\"\n        }\n      ],\n      \"title\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1262ca1b-88a8-4c8c-95e4-dbd0b238f1f2",
+      "name": "apps",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3bb6a6ea-baca-4a86-99b3-2fcf3e2418e5",
+          "name": "Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied err",
+          "request": {
+            "name": "Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied err",
+            "description": {
+              "content": "Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account for which the app is being created. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"manualAppInfo\": {\n    \"displayName\": \"<string>\"\n  },\n  \"linkedAppInfo\": {\n    \"androidAppStores\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"appStoreId\": \"<string>\"\n  },\n  \"platform\": \"<string>\",\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cba83aca-d315-4fe7-a1b5-ecd82b212d93",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account for which the app is being created. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"manualAppInfo\": {\n    \"displayName\": \"string\"\n  },\n  \"linkedAppInfo\": {\n    \"androidAppStores\": [\n      \"VIVO_APP_STORE\",\n      \"VIVO_APP_STORE\"\n    ],\n    \"appStoreId\": \"string\"\n  },\n  \"platform\": \"<string>\",\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"manualAppInfo\": {\n    \"displayName\": \"string\"\n  },\n  \"linkedAppInfo\": {\n    \"displayName\": \"string\",\n    \"androidAppStores\": [\n      \"OPPO_APP_STORE\",\n      \"XIAOMI_APP_STORE\"\n    ],\n    \"appStoreId\": \"string\"\n  },\n  \"platform\": \"string\",\n  \"name\": \"string\",\n  \"appApprovalState\": \"IN_REVIEW\",\n  \"appId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12dca76b-fefe-40ee-b52d-9785d9d50644",
+          "name": "List the apps under the specified AdMob account.",
+          "request": {
+            "name": "List the apps under the specified AdMob account.",
+            "description": {
+              "content": "List the apps under the specified AdMob account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListAppsResponse`; indicates that this is a continuation of a prior `ListApps` call, and that the system should return the next page of data."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15be6ea3-1713-449e-8c52-f45b07149509",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apps\": [\n    {\n      \"manualAppInfo\": {\n        \"displayName\": \"string\"\n      },\n      \"linkedAppInfo\": {\n        \"displayName\": \"string\",\n        \"androidAppStores\": [\n          \"GOOGLE_PLAY_APP_STORE\",\n          \"GOOGLE_PLAY_APP_STORE\"\n        ],\n        \"appStoreId\": \"string\"\n      },\n      \"platform\": \"string\",\n      \"name\": \"string\",\n      \"appApprovalState\": \"APP_APPROVAL_STATE_UNSPECIFIED\",\n      \"appId\": \"string\"\n    },\n    {\n      \"manualAppInfo\": {\n        \"displayName\": \"string\"\n      },\n      \"linkedAppInfo\": {\n        \"displayName\": \"string\",\n        \"androidAppStores\": [\n          \"SAMSUNG_APP_STORE\",\n          \"ANDROID_APP_STORE_UNSPECIFIED\"\n        ],\n        \"appStoreId\": \"string\"\n      },\n      \"platform\": \"string\",\n      \"name\": \"string\",\n      \"appApprovalState\": \"IN_REVIEW\",\n      \"appId\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "31ea4bbf-b53f-49e0-9682-c9c30cd14df7",
+      "name": "campaignReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "777692a7-f13b-4301-bf55-20a6c0548cc2",
+          "name": "Generates Campaign Report based on provided specifications.",
+          "request": {
+            "name": "Generates Campaign Report based on provided specifications.",
+            "description": {
+              "content": "Generates Campaign Report based on provided specifications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "campaignReport:generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportSpec\": {\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      },\n      \"endDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      }\n    },\n    \"languageCode\": \"<string>\",\n    \"dimensions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metrics\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07796327-048a-4c04-8a1c-1615e68fd42d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "campaignReport:generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportSpec\": {\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 3834,\n        \"year\": 165,\n        \"month\": 3460\n      },\n      \"endDate\": {\n        \"day\": 4627,\n        \"year\": 1540,\n        \"month\": 6022\n      }\n    },\n    \"languageCode\": \"string\",\n    \"dimensions\": [\n      \"CAMPAIGN_NAME\",\n      \"PLACEMENT_PLATFORM\"\n    ],\n    \"metrics\": [\n      \"AVERAGE_CPI\",\n      \"AVERAGE_CPI\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rows\": [\n    {\n      \"dimensionValues\": {\n        \"key_0\": {\n          \"displayLabel\": \"string\",\n          \"value\": \"string\"\n        },\n        \"key_1\": {\n          \"displayLabel\": \"string\",\n          \"value\": \"string\"\n        }\n      },\n      \"metricValues\": {\n        \"key_0\": {\n          \"integerValue\": \"string\",\n          \"doubleValue\": 685.0486971457426,\n          \"microsValue\": \"string\"\n        }\n      }\n    },\n    {\n      \"dimensionValues\": {\n        \"key_0\": {\n          \"displayLabel\": \"string\",\n          \"value\": \"string\"\n        }\n      },\n      \"metricValues\": {\n        \"key_0\": {\n          \"integerValue\": \"string\",\n          \"doubleValue\": 2236.8107442196106,\n          \"microsValue\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a9196c40-7017-492a-8bf2-c770d6d3455f",
+      "name": "mediationAbExperiments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87b03210-d927-4dc1-9697-e687b128aece",
+          "name": "Create an A/B testing experiment for a specified AdMob account and a mediation group. This method has limited access. If",
+          "request": {
+            "name": "Create an A/B testing experiment for a specified AdMob account and a mediation group. This method has limited access. If",
+            "description": {
+              "content": "Create an A/B testing experiment for a specified AdMob account and a mediation group. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationGroups",
+                ":mediationGroupsId",
+                "mediationAbExperiments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns the mediation group. Format: accounts/{publisher_id}/mediationGroups/{mediation_group_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"treatmentMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"<string>\",\n        \"state\": \"<string>\",\n        \"cpmMicros\": \"<int64>\",\n        \"cpmMode\": \"<string>\",\n        \"adUnitMappings\": {\n          \"key_0\": \"<string>\"\n        },\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"<string>\",\n        \"state\": \"<string>\",\n        \"cpmMicros\": \"<int64>\",\n        \"cpmMode\": \"<string>\",\n        \"adUnitMappings\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"id\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    }\n  ],\n  \"displayName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"treatmentTrafficPercentage\": \"<int64>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "188bba11-745c-479f-a1f8-329a7817b43d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationGroups",
+                    ":mediationGroupsId",
+                    "mediationAbExperiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns the mediation group. Format: accounts/{publisher_id}/mediationGroups/{mediation_group_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"treatmentMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"ENABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\",\n          \"key_3\": \"string\",\n          \"key_4\": \"string\"\n        },\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"DISABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ],\n  \"displayName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"treatmentTrafficPercentage\": \"<int64>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"endTime\": \"string\",\n  \"state\": \"EXPIRED\",\n  \"treatmentMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"DISABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"LIVE\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"experimentVariant\": \"ORIGINAL\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"ENABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"ANO\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_A\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ],\n  \"mediationGroupId\": \"string\",\n  \"displayName\": \"string\",\n  \"experimentId\": \"string\",\n  \"startTime\": \"string\",\n  \"controlMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"DISABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_B\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"REMOVED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"MANUAL\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_B\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ],\n  \"name\": \"string\",\n  \"treatmentTrafficPercentage\": \"string\",\n  \"variantLeader\": \"INSUFFICIENT_DATA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f4ca00b-4a16-46ee-ac7c-c78272af50a5",
+          "name": "Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission deni",
+          "request": {
+            "name": "Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission deni",
+            "description": {
+              "content": "Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationGroups",
+                ":mediationGroupsId",
+                "mediationAbExperiments:stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Name of the mediation group, the experiment for which to choose a variant for. Example: accounts/pub-9876543210987654/mediationGroups/0123456789/ mediationAbExperiments"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"variantChoice\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3683f732-d714-4054-aafb-4041c72926ad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationGroups",
+                    ":mediationGroupsId",
+                    "mediationAbExperiments:stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Name of the mediation group, the experiment for which to choose a variant for. Example: accounts/pub-9876543210987654/mediationGroups/0123456789/ mediationAbExperiments"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"variantChoice\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"endTime\": \"string\",\n  \"state\": \"EXPIRED\",\n  \"treatmentMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"DISABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"LIVE\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"experimentVariant\": \"ORIGINAL\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"ENABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"ANO\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_A\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ],\n  \"mediationGroupId\": \"string\",\n  \"displayName\": \"string\",\n  \"experimentId\": \"string\",\n  \"startTime\": \"string\",\n  \"controlMediationLines\": [\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"DISABLED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_B\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    },\n    {\n      \"mediationGroupLine\": {\n        \"adSourceId\": \"string\",\n        \"state\": \"REMOVED\",\n        \"cpmMicros\": \"string\",\n        \"cpmMode\": \"MANUAL\",\n        \"adUnitMappings\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        },\n        \"experimentVariant\": \"VARIANT_B\",\n        \"id\": \"string\",\n        \"displayName\": \"string\"\n      }\n    }\n  ],\n  \"name\": \"string\",\n  \"treatmentTrafficPercentage\": \"string\",\n  \"variantLeader\": \"INSUFFICIENT_DATA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba17316a-19ff-4f02-8bdf-95ce2f681e1f",
+      "name": "mediationGroups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48b6d35d-d876-4572-be41-60cd12e057e0",
+          "name": "List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission den",
+          "request": {
+            "name": "List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission den",
+            "description": {
+              "content": "List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "The value returned by the last `ListMediationGroupsResponse`; indicates that this is a continuation of a prior `ListMediationGroups` call, and that the system should return the next page of data."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "The maximum number of mediation groups to return. If unspecified or 0, at most 10,000 mediation groups will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "The filter string that uses [EBNF grammar syntax](https://google.aip.dev/assets/misc/ebnf-filtering.txt). Possible fields to filter by are: - \"AD_SOURCE_IDS\" - \"AD_UNIT_IDS\" - \"APP_IDS\" - \"DISPLAY_NAME\" - \"FORMAT\" - \"MEDIATION_GROUP_ID\" - \"PLATFORM\" - \"STATE\" - \"TARGETED_REGION_CODES\" Possible filter functions are: - `IN`: Used to filter fields that represent a singleton including \"MEDIATION_GROUP_ID\", \"DISPLAY_NAME\", \"STATE\", \"PLATFORM\", and \"FORMAT\". - `CONTAINS_ANY`: Used to filter fields that represent a collection including \"AD_SOURCE_IDS\", \"AD_UNIT_IDS\", \"APP_IDS\", and \"TARGETED_REGION_CODES\". The filter functions can be added together using `AND`. `OR` functionality is not supported. Example: filter: IN(DISPLAY_NAME, \"Test Group 1\", \"Test Group 2\") AND IN(PLATFORM, \"ANDROID\") AND CONTAINS_ANY(AD_SOURCE_IDS, \"5450213213286189855\")"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. Resource name of the account to list mediation groups for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac061ceb-b287-4f76-836d-ab42f77e31ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. Resource name of the account to list mediation groups for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediationGroups\": [\n    {\n      \"mediationGroupId\": \"string\",\n      \"targeting\": {\n        \"platform\": \"string\",\n        \"targetedRegionCodes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"adUnitIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"excludedRegionCodes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"idfaTargeting\": \"ALL\",\n        \"format\": \"string\"\n      },\n      \"state\": \"DISABLED\",\n      \"mediationGroupLines\": {\n        \"key_0\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"ENABLED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"MANUAL\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\"\n          },\n          \"experimentVariant\": \"ORIGINAL\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"key_1\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"REMOVED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"ANO\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"experimentVariant\": \"VARIANT_A\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"key_2\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"STATE_UNSPECIFIED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"MANUAL\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"experimentVariant\": \"VARIANT_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mediationAbExperimentState\": \"RUNNING\"\n    },\n    {\n      \"mediationGroupId\": \"string\",\n      \"targeting\": {\n        \"platform\": \"string\",\n        \"targetedRegionCodes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"adUnitIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"excludedRegionCodes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"idfaTargeting\": \"IDFA_TARGETING_UNSPECIFIED\",\n        \"format\": \"string\"\n      },\n      \"state\": \"DISABLED\",\n      \"mediationGroupLines\": {\n        \"key_0\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"DISABLED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          },\n          \"experimentVariant\": \"VARIANT_B\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"key_1\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"REMOVED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"MANUAL\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\",\n            \"key_1\": \"string\"\n          },\n          \"experimentVariant\": \"ORIGINAL\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"key_2\": {\n          \"adSourceId\": \"string\",\n          \"state\": \"REMOVED\",\n          \"cpmMicros\": \"string\",\n          \"cpmMode\": \"ANO\",\n          \"adUnitMappings\": {\n            \"key_0\": \"string\"\n          },\n          \"experimentVariant\": \"VARIANT_UNSPECIFIED\",\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      },\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mediationAbExperimentState\": \"NOT_RUNNING\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72a452f4-28de-4d1a-ba6d-2ed001f3819f",
+          "name": "Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission d",
+          "request": {
+            "name": "Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission d",
+            "description": {
+              "content": "Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Required. The parent which owns the mediation group. Format: accounts/{publisher_id}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mediationGroupId\": \"<string>\",\n  \"targeting\": {\n    \"platform\": \"<string>\",\n    \"targetedRegionCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"adUnitIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludedRegionCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idfaTargeting\": \"<string>\",\n    \"format\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"<string>\",\n      \"state\": \"<string>\",\n      \"cpmMicros\": \"<int64>\",\n      \"cpmMode\": \"<string>\",\n      \"adUnitMappings\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"<string>\",\n      \"state\": \"<string>\",\n      \"cpmMicros\": \"<int64>\",\n      \"cpmMode\": \"<string>\",\n      \"adUnitMappings\": {\n        \"key_0\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6f44d62-fb6f-448a-a1db-a2865f3a465e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Required. The parent which owns the mediation group. Format: accounts/{publisher_id}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediationGroupId\": \"<string>\",\n  \"targeting\": {\n    \"platform\": \"string\",\n    \"targetedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"adUnitIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"excludedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idfaTargeting\": \"AVAILABLE\",\n    \"format\": \"string\"\n  },\n  \"state\": \"<string>\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"REMOVED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"LIVE\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_2\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"MANUAL\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediationGroupId\": \"string\",\n  \"targeting\": {\n    \"platform\": \"string\",\n    \"targetedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"adUnitIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"excludedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idfaTargeting\": \"ALL\",\n    \"format\": \"string\"\n  },\n  \"state\": \"DISABLED\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"REMOVED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"MANUAL\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"experimentVariant\": \"VARIANT_B\",\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"LIVE\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"experimentVariant\": \"ORIGINAL\",\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mediationAbExperimentState\": \"EXPERIMENT_STATE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50302f63-c393-4cd1-a95a-58ea849c6ba8",
+          "name": "Update the specified mediation group under the specified AdMob account. This method has limited access. If you see a 403",
+          "request": {
+            "name": "Update the specified mediation group under the specified AdMob account. This method has limited access. If you see a 403",
+            "description": {
+              "content": "Update the specified mediation group under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationGroups",
+                ":mediationGroupsId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "updateMask",
+                  "value": "<google-fieldmask>",
+                  "description": "List of mediation group fields to be updated. Updates to repeated fields such as items in a list will fully replace the existing value(s) with the new value(s). Updates to individual values in a map can be done by indexing by the key. The following field masks are supported for mediation group updates: - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"]\" clang-format off - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"].ad_unit_mappings[\\\"{ad_unit_id}\\\"]\" clang-format on - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"].cpm_micros\" - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"].cpm_mode\" - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"].state\" - \"mediation_group_lines[\\\"{mediation_group_line_id}\\\"].display_name\" - \"targeting.ad_unit_ids\" To update a mediation group with a new mediation group line, use a distinct negative number for the \"mediation_group_line_id\". For Example: update_mask { paths: \"mediation_group_lines[\\\"123456789012345\\\"].cpm_micros\" }"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Resource name for this mediation group. Format is: accounts/{publisher_id}/mediationGroups/{mediation_group_id} Example: accounts/pub-9876543210987654/mediationGroups/0123456789"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mediationGroupId\": \"<string>\",\n  \"targeting\": {\n    \"platform\": \"<string>\",\n    \"targetedRegionCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"adUnitIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"excludedRegionCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idfaTargeting\": \"<string>\",\n    \"format\": \"<string>\"\n  },\n  \"state\": \"<string>\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"<string>\",\n      \"state\": \"<string>\",\n      \"cpmMicros\": \"<int64>\",\n      \"cpmMode\": \"<string>\",\n      \"adUnitMappings\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"<string>\",\n      \"state\": \"<string>\",\n      \"cpmMicros\": \"<int64>\",\n      \"cpmMode\": \"<string>\",\n      \"adUnitMappings\": {\n        \"key_0\": \"<string>\"\n      },\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1908cc75-567d-487c-8fde-061912f0b908",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationGroups",
+                    ":mediationGroupsId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "updateMask",
+                      "value": "<google-fieldmask>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Resource name for this mediation group. Format is: accounts/{publisher_id}/mediationGroups/{mediation_group_id} Example: accounts/pub-9876543210987654/mediationGroups/0123456789"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediationGroupId\": \"<string>\",\n  \"targeting\": {\n    \"platform\": \"string\",\n    \"targetedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"adUnitIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"excludedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idfaTargeting\": \"AVAILABLE\",\n    \"format\": \"string\"\n  },\n  \"state\": \"<string>\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"REMOVED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"LIVE\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"CPM_MODE_UNSPECIFIED\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_2\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"MANUAL\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediationGroupId\": \"string\",\n  \"targeting\": {\n    \"platform\": \"string\",\n    \"targetedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"adUnitIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"excludedRegionCodes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idfaTargeting\": \"ALL\",\n    \"format\": \"string\"\n  },\n  \"state\": \"DISABLED\",\n  \"mediationGroupLines\": {\n    \"key_0\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"REMOVED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"MANUAL\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\"\n      },\n      \"experimentVariant\": \"VARIANT_B\",\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"key_1\": {\n      \"adSourceId\": \"string\",\n      \"state\": \"DISABLED\",\n      \"cpmMicros\": \"string\",\n      \"cpmMode\": \"LIVE\",\n      \"adUnitMappings\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"experimentVariant\": \"ORIGINAL\",\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mediationAbExperimentState\": \"EXPERIMENT_STATE_UNSPECIFIED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "96869a60-8087-4a24-b4e9-5141c347bca6",
+      "name": "mediationReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "637b5cb7-e51a-4271-80c1-bdfbb262a9cf",
+          "name": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streamin",
+          "request": {
+            "name": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streamin",
+            "description": {
+              "content": "Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "mediationReport:generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"maxReportRows\": \"<integer>\",\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"languageCode\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    },\n    \"timeZone\": \"<string>\",\n    \"dimensions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      },\n      \"endDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"metric\": \"<string>\"\n      },\n      {\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"metric\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5be783b8-975e-453a-bbd1-d190059e7679",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "mediationReport:generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportSpec\": {\n    \"metrics\": [\n      \"MATCH_RATE\",\n      \"AD_REQUESTS\"\n    ],\n    \"maxReportRows\": 6686,\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"DATE\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"SERVING_RESTRICTION\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"languageCode\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"timeZone\": \"string\",\n    \"dimensions\": [\n      \"SERVING_RESTRICTION\",\n      \"AD_UNIT\"\n    ],\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 3684,\n        \"year\": 5309,\n        \"month\": 5647\n      },\n      \"endDate\": {\n        \"day\": 84,\n        \"year\": 3165,\n        \"month\": 599\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"order\": \"DESCENDING\",\n        \"dimension\": \"FORMAT\",\n        \"metric\": \"AD_REQUESTS\"\n      },\n      {\n        \"order\": \"ASCENDING\",\n        \"dimension\": \"PLATFORM\",\n        \"metric\": \"AD_REQUESTS\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"footer\": {\n    \"matchingRowCount\": \"string\",\n    \"warnings\": [\n      {\n        \"type\": \"DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"DATA_DELAYED\",\n        \"description\": \"string\"\n      }\n    ]\n  },\n  \"row\": {\n    \"dimensionValues\": {\n      \"key_0\": {\n        \"displayLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    \"metricValues\": {\n      \"key_0\": {\n        \"integerValue\": \"string\",\n        \"doubleValue\": 3150.8756297692444,\n        \"microsValue\": \"string\"\n      }\n    }\n  },\n  \"header\": {\n    \"localizationSettings\": {\n      \"languageCode\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"reportingTimeZone\": \"string\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 1457,\n        \"year\": 2620,\n        \"month\": 2568\n      },\n      \"endDate\": {\n        \"day\": 8237,\n        \"year\": 3604,\n        \"month\": 7241\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bbd4e4ab-e24e-4b22-b04b-d18646ce778a",
+      "name": "networkReport",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a586f33c-8c8b-4f84-84c4-507f2ca73e68",
+          "name": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming ",
+          "request": {
+            "name": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming ",
+            "description": {
+              "content": "Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1beta",
+                "accounts",
+                ":accountsId",
+                "networkReport:generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://oauth2.googleapis.com/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://accounts.google.com/o/oauth2/v2/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportSpec\": {\n    \"dimensions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      },\n      \"endDate\": {\n        \"day\": \"<integer>\",\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\"\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"metric\": \"<string>\",\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\"\n      },\n      {\n        \"metric\": \"<string>\",\n        \"order\": \"<string>\",\n        \"dimension\": \"<string>\"\n      }\n    ],\n    \"metrics\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"maxReportRows\": \"<integer>\",\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"dimension\": \"<string>\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"languageCode\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    },\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "559c7749-626d-415b-9b73-e9b80a0f56f2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "accounts",
+                    ":accountsId",
+                    "networkReport:generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Resource name of the account to generate the report for. Example: accounts/pub-9876543210987654"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportSpec\": {\n    \"dimensions\": [\n      \"APP_VERSION_NAME\",\n      \"COUNTRY\"\n    ],\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 3002,\n        \"year\": 9371,\n        \"month\": 8531\n      },\n      \"endDate\": {\n        \"day\": 5043,\n        \"year\": 7570,\n        \"month\": 826\n      }\n    },\n    \"sortConditions\": [\n      {\n        \"metric\": \"AD_REQUESTS\",\n        \"order\": \"ASCENDING\",\n        \"dimension\": \"SERVING_RESTRICTION\"\n      },\n      {\n        \"metric\": \"CLICKS\",\n        \"order\": \"ASCENDING\",\n        \"dimension\": \"PLATFORM\"\n      }\n    ],\n    \"metrics\": [\n      \"IMPRESSIONS\",\n      \"IMPRESSION_RPM\"\n    ],\n    \"maxReportRows\": 2976,\n    \"dimensionFilters\": [\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"DIMENSION_UNSPECIFIED\"\n      },\n      {\n        \"matchesAny\": {\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"dimension\": \"GMA_SDK_VERSION\"\n      }\n    ],\n    \"localizationSettings\": {\n      \"languageCode\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"timeZone\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"footer\": {\n    \"matchingRowCount\": \"string\",\n    \"warnings\": [\n      {\n        \"type\": \"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY\",\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"OTHER\",\n        \"description\": \"string\"\n      }\n    ]\n  },\n  \"row\": {\n    \"dimensionValues\": {\n      \"key_0\": {\n        \"displayLabel\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    \"metricValues\": {\n      \"key_0\": {\n        \"integerValue\": \"string\",\n        \"doubleValue\": 256.17250352614974,\n        \"microsValue\": \"string\"\n      },\n      \"key_1\": {\n        \"integerValue\": \"string\",\n        \"doubleValue\": 953.0292973220112,\n        \"microsValue\": \"string\"\n      }\n    }\n  },\n  \"header\": {\n    \"localizationSettings\": {\n      \"languageCode\": \"string\",\n      \"currencyCode\": \"string\"\n    },\n    \"reportingTimeZone\": \"string\",\n    \"dateRange\": {\n      \"startDate\": {\n        \"day\": 2769,\n        \"year\": 692,\n        \"month\": 1539\n      },\n      \"endDate\": {\n        \"day\": 2077,\n        \"year\": 8438,\n        \"month\": 8324\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://admob.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/admob.readonly https://www.googleapis.com/auth/admob.report"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "99e26499-437b-4ac3-bf4a-3767be72b84b",
+    "name": "AdMob API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AdMob API allows publishers to programmatically get information about their AdMob account.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

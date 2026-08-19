@@ -2,39 +2,34 @@ generated: '2026-08-12'
 method: derived
 status: candidate
 source: openapi/admob-api-v1-openapi.yml, openapi/admob-api-v1beta-openapi.yml
-notes: >-
-  Google publishes NO first-party MCP server for AdMob. Searched the AdMob
-  developer docs, the Google Ads Developer Blog (which did announce an
-  open-source MCP server for the Google Ads API, a different product) and the
-  MCP registries on 2026-08-12; the only AdMob MCP servers that exist are
-  independent community projects. The tool list below is therefore a CANDIDATE
-  derived one-to-one from the 25 real operations in the OpenAPI converted from
-  Google's Discovery Document — every tool inherits its input schema from the
-  named source operation. No MCPServer pointer is wired into apis.yml, because
-  that pointer asserts the provider serves an MCP endpoint and AdMob does not.
+notes: Google publishes NO first-party MCP server for AdMob. Searched the AdMob developer docs, the Google
+  Ads Developer Blog (which did announce an open-source MCP server for the Google Ads API, a different
+  product) and the MCP registries on 2026-08-12; the only AdMob MCP servers that exist are independent
+  community projects. The tool list below is therefore a CANDIDATE derived one-to-one from the 25 real
+  operations in the OpenAPI converted from Google's Discovery Document — every tool inherits its input
+  schema from the named source operation. No MCPServer pointer is wired into apis.yml, because that pointer
+  asserts the provider serves an MCP endpoint and AdMob does not.
 server:
   official: false
   url: null
   transport: null
 third_party_servers:
-  - name: willhou/admob-mcp
-    url: https://github.com/willhou/admob-mcp
-    first_party: false
-  - name: jerry2247/admob-mcp
-    url: https://github.com/jerry2247/admob-mcp
-    first_party: false
-  - name: ard3051997/Admob-MCP
-    url: https://github.com/ard3051997/Admob-MCP
-    first_party: false
-  - name: kunny/admob-mcp-server
-    url: https://github.com/kunny/admob-mcp-server
-    first_party: false
+- name: willhou/admob-mcp
+  url: https://github.com/willhou/admob-mcp
+  first_party: false
+- name: jerry2247/admob-mcp
+  url: https://github.com/jerry2247/admob-mcp
+  first_party: false
+- name: ard3051997/Admob-MCP
+  url: https://github.com/ard3051997/Admob-MCP
+  first_party: false
+- name: kunny/admob-mcp-server
+  url: https://github.com/kunny/admob-mcp-server
+  first_party: false
 auth:
   model: oauth2
-  detail: >-
-    Any MCP server over the AdMob API must carry a Google OAuth 2.0 user access
-    token with admob.readonly and/or admob.report; the AdMob API does not support
-    service accounts.
+  detail: Any MCP server over the AdMob API must carry a Google OAuth 2.0 user access token with admob.readonly
+    and/or admob.report; the AdMob API does not support service accounts.
 tool_count: 25
 tools:
 - name: admob_v1_accounts_get
@@ -255,3 +250,9 @@ tools:
   path: /v1beta/accounts/{accountsId}/adUnitMappings:batchCreate
   scopes: []
   mutating: true
+deployment:
+  mode: none
+  verified: derived
+  tools: 25
+  checked: '2026-08-12'
+  source: catalog MCP census
