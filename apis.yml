@@ -33,16 +33,16 @@ tags:
 - Mediation
 - AdTech
 apis:
-- name: AdMob API
-  description: "REST/JSON API providing programmatic access to AdMob account data, apps, ad units, mediation configuration, and network, mediation and campaign performance reports. v1 is read-only; v1beta adds the write surface for apps, ad units, ad unit mappings, mediation groups and mediation A/B experiments. Authorized with Google OAuth 2.0 user credentials; service accounts are not supported."
+- aid: admob:admob-accounts-api
+  name: AdMob Accounts API
+  description: The accounts API from AdMob — 4 operation(s) for accounts.
   humanURL: https://developers.google.com/admob/api
   baseURL: https://admob.googleapis.com
   tags:
-  - Advertising
-  - Mobile
-  - Reporting
-  - Mediation
+  - accounts
   properties:
+  - type: OpenAPI
+    url: openapi/admob-accounts-api-openapi.yml
   - type: Documentation
     url: https://developers.google.com/admob/api/v1/getting-started
   - type: APIReference
@@ -51,22 +51,196 @@ apis:
     url: authentication/admob-authentication.yml
   - type: OAuthScopes
     url: scopes/admob-scopes.yml
+- aid: admob:admob-adapters-api
+  name: AdMob Adapters API
+  description: The adapters API from AdMob — 1 operation(s) for adapters.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - adapters
+  properties:
   - type: OpenAPI
-    name: AdMob API v1 (OpenAPI 3.1, converted from Google's Discovery Document)
-    url: openapi/admob-api-v1-openapi.yml
+    url: openapi/admob-adapters-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-adsources-api
+  name: AdMob Ad Sources API
+  description: The adSources API from AdMob — 1 operation(s) for adsources.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - adSources
+  properties:
   - type: OpenAPI
-    name: AdMob API v1beta (OpenAPI 3.1, converted from Google's Discovery Document)
-    url: openapi/admob-api-v1beta-openapi.yml
-  - type: Overlay
-    url: overlays/admob-api-v1-overlay.yaml
-  - type: Overlay
-    url: overlays/admob-api-v1beta-overlay.yaml
+    url: openapi/admob-adsources-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-adunitmappings-api
+  name: AdMob Ad Unit Mappings API
+  description: The adUnitMappings API from AdMob — 2 operation(s) for adunitmappings.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - adUnitMappings
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-adunitmappings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-adunits-api
+  name: AdMob Ad Units API
+  description: The adUnits API from AdMob — 2 operation(s) for adunits.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - adUnits
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-adunits-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-apps-api
+  name: AdMob Apps API
+  description: The apps API from AdMob — 2 operation(s) for apps.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - apps
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-apps-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-campaignreport-api
+  name: AdMob Campaign Report API
+  description: The campaignReport API from AdMob — 1 operation(s) for campaignreport.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - campaignReport
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-campaignreport-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-mediationabexperiments-api
+  name: AdMob Mediation Ab Experiments API
+  description: The mediationAbExperiments API from AdMob — 2 operation(s) for mediationabexperiments.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - mediationAbExperiments
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-mediationabexperiments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-mediationgroups-api
+  name: AdMob Mediation Groups API
+  description: The mediationGroups API from AdMob — 2 operation(s) for mediationgroups.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - mediationGroups
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-mediationgroups-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-mediationreport-api
+  name: AdMob Mediation Report API
+  description: The mediationReport API from AdMob — 2 operation(s) for mediationreport.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - mediationReport
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-mediationreport-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-networkreport-api
+  name: AdMob Network Report API
+  description: The networkReport API from AdMob — 2 operation(s) for networkreport.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - networkReport
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-networkreport-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/admob-api-v1-overlay.yaml
+- type: Overlay
+  url: overlays/admob-api-v1beta-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/admob-agentic-access.yml
 - type: VulnerabilityDisclosure
