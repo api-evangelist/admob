@@ -1,0 +1,193 @@
+openapi: 3.2.0
+info:
+  title: Admob Accounts API
+  contact:
+    name: Google
+    url: https://developers.google.com/admob/api/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://developers.google.com/terms
+  x-discovery-revision: '20260731'
+  version: '1.0'
+  description: 'Operations tagged accounts across 2 of this provider''s published API definitions: admob-api-v1-openapi.yml, admob-api-v1beta-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://admob.googleapis.com
+  description: AdMob API
+security:
+- GoogleOAuth2:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+tags:
+- name: accounts
+paths:
+  /v1/accounts/{accountsId}:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_get
+      summary: Gets information about the specified AdMob publisher account.
+      description: Gets information about the specified AdMob publisher account.
+      tags:
+      - accounts
+      parameters:
+      - name: name
+        in: path
+        description: 'Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublisherAccount'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+        - https://www.googleapis.com/auth/admob.report
+  /v1/accounts:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_list
+      summary: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https
+      description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.
+      tags:
+      - accounts
+      parameters:
+      - name: pageSize
+        in: query
+        description: Maximum number of accounts to return.
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPublisherAccountsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+        - https://www.googleapis.com/auth/admob.report
+  /v1beta/accounts/{accountsId}:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_get
+      summary: Gets information about the specified AdMob publisher account.
+      description: Gets information about the specified AdMob publisher account.
+      tags:
+      - accounts
+      parameters:
+      - name: name
+        in: path
+        description: 'Resource name of the publisher account to retrieve. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublisherAccount'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+        - https://www.googleapis.com/auth/admob.report
+  /v1beta/accounts:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_list
+      summary: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https
+      description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.
+      tags:
+      - accounts
+      parameters:
+      - name: pageSize
+        in: query
+        description: Maximum number of accounts to return.
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPublisherAccountsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+        - https://www.googleapis.com/auth/admob.report
+components:
+  schemas:
+    PublisherAccount:
+      type: object
+      description: A publisher account contains information relevant to the use of this API, such as the time zone used for the reports.
+      properties:
+        name:
+          type: string
+          description: Resource name of this account. Format is accounts/{publisher_id}.
+        reportingTimeZone:
+          type: string
+          description: The time zone that is used in reports that are generated for this account. The value is a time-zone ID as specified by the CLDR project, for example, "America/Los_Angeles".
+        publisherId:
+          type: string
+          description: The unique ID by which this publisher account can be identified in the API requests (for example, pub-1234567890).
+        currencyCode:
+          type: string
+          description: Currency code of the earning-related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion.
+    ListPublisherAccountsResponse:
+      type: object
+      description: Response for the publisher account list request.
+      properties:
+        nextPageToken:
+          type: string
+          description: If not empty, indicates that there might be more accounts for the request; you must pass this value in a new `ListPublisherAccountsRequest`.
+        account:
+          type: array
+          description: Publisher that the client credentials can access.
+          items:
+            $ref: '#/components/schemas/PublisherAccount'
+  securitySchemes:
+    GoogleOAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. See https://developers.google.com/admob/api/v1/auth
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/admob.readonly: See your AdMob data
+            https://www.googleapis.com/auth/admob.report: See your AdMob data
+externalDocs:
+  url: https://developers.google.com/admob/api/
+x-refined-from:
+- admob-api-v1-openapi.yml
+- admob-api-v1beta-openapi.yml

@@ -1,0 +1,207 @@
+openapi: 3.2.0
+info:
+  title: Admob Apps API
+  contact:
+    name: Google
+    url: https://developers.google.com/admob/api/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://developers.google.com/terms
+  x-discovery-revision: '20260731'
+  version: '1.0'
+  description: 'Operations tagged apps across 2 of this provider''s published API definitions: admob-api-v1-openapi.yml, admob-api-v1beta-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://admob.googleapis.com
+  description: AdMob API
+security:
+- GoogleOAuth2:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+tags:
+- name: apps
+paths:
+  /v1/accounts/{accountsId}/apps:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_apps_list
+      summary: List the apps under the specified AdMob account.
+      description: List the apps under the specified AdMob account.
+      tags:
+      - apps
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListAppsResponse`; indicates that this is a continuation of a prior `ListApps` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAppsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+  /v1beta/accounts/{accountsId}/apps:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    post:
+      operationId: accounts_apps_create
+      summary: Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied err
+      description: Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
+      tags:
+      - apps
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account for which the app is being created. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+    get:
+      operationId: accounts_apps_list
+      summary: List the apps under the specified AdMob account.
+      description: List the apps under the specified AdMob account.
+      tags:
+      - apps
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account to list apps for. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      - name: pageSize
+        in: query
+        description: The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000.
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListAppsResponse`; indicates that this is a continuation of a prior `ListApps` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAppsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+components:
+  schemas:
+    AppLinkedAppInfo:
+      type: object
+      description: Information from the app store if the app is linked to an app store.
+      properties:
+        displayName:
+          type: string
+          description: Output only. Display name of the app as it appears in the app store. This is an output-only field, and may be empty if the app cannot be found in the store.
+          readOnly: true
+        appStoreId:
+          type: string
+          description: 'The app store ID of the app; present if and only if the app is linked to an app store. If the app is added to the Google Play store, it will be the application ID of the app. For example: "com.example.myapp". See https://developer.android.com/studio/build/application-id. If the app is added to the Apple App Store, it will be app store ID. For example "105169111". Note that setting the app store id is considered an irreversible action. Once an app is linked, it cannot be unlinked.'
+    AppManualAppInfo:
+      type: object
+      description: 'Information provided for manual apps which are not linked to an application store (Example: Google Play, App Store).'
+      properties:
+        displayName:
+          type: string
+          description: The display name of the app as shown in the AdMob UI, which is provided by the user. The maximum length allowed is 80 characters.
+    ListAppsResponse:
+      type: object
+      description: Response for the apps list request.
+      properties:
+        apps:
+          type: array
+          description: The resulting apps for the requested account.
+          items:
+            $ref: '#/components/schemas/App'
+        nextPageToken:
+          type: string
+          description: If not empty, indicates that there may be more apps for the request; this value should be passed in a new `ListAppsRequest`.
+    App:
+      type: object
+      description: 'Describes an AdMob app for a specific platform (For example: Android or iOS).'
+      properties:
+        appId:
+          type: string
+          description: 'The externally visible ID of the app which can be used to integrate with AdMob. This is a read only property. Example: ca-app-pub-9876543210987654~0123456789'
+        linkedAppInfo:
+          $ref: '#/components/schemas/AppLinkedAppInfo'
+        manualAppInfo:
+          $ref: '#/components/schemas/AppManualAppInfo'
+        platform:
+          type: string
+          description: Describes the platform of the app. Limited to "IOS" and "ANDROID".
+        appApprovalState:
+          type: string
+          description: Output only. The approval state for the app. The field is read-only.
+          enum:
+          - APP_APPROVAL_STATE_UNSPECIFIED
+          - ACTION_REQUIRED
+          - IN_REVIEW
+          - APPROVED
+          x-enumDescriptions:
+          - Default value for an unset field. Do not use.
+          - The app requires additional user action to be approved. Please refer to https://support.google.com/admob/answer/10564477 for details and next steps.
+          - The app is pending review.
+          - The app is approved and can serve ads.
+          readOnly: true
+        name:
+          type: string
+          description: 'Resource name for this app. Format is accounts/{publisher_id}/apps/{app_id_fragment} Example: accounts/pub-9876543210987654/apps/0123456789'
+  securitySchemes:
+    GoogleOAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. See https://developers.google.com/admob/api/v1/auth
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/admob.readonly: See your AdMob data
+            https://www.googleapis.com/auth/admob.report: See your AdMob data
+externalDocs:
+  url: https://developers.google.com/admob/api/
+x-refined-from:
+- admob-api-v1-openapi.yml
+- admob-api-v1beta-openapi.yml

@@ -1,0 +1,219 @@
+openapi: 3.2.0
+info:
+  title: Admob Ad Units API
+  contact:
+    name: Google
+    url: https://developers.google.com/admob/api/
+  license:
+    name: Google APIs Terms of Service
+    url: https://developers.google.com/terms
+  termsOfService: https://developers.google.com/terms
+  x-discovery-revision: '20260731'
+  version: '1.0'
+  description: 'Operations tagged adUnits across 2 of this provider''s published API definitions: admob-api-v1-openapi.yml, admob-api-v1beta-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://admob.googleapis.com
+  description: AdMob API
+security:
+- GoogleOAuth2:
+  - https://www.googleapis.com/auth/admob.readonly
+  - https://www.googleapis.com/auth/admob.report
+tags:
+- name: adUnits
+paths:
+  /v1/accounts/{accountsId}/adUnits:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_adUnits_list
+      summary: List the ad units under the specified AdMob account.
+      description: List the ad units under the specified AdMob account.
+      tags:
+      - adUnits
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListAdUnitsResponse`; indicates that this is a continuation of a prior `ListAdUnits` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAdUnitsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+  /v1beta/accounts/{accountsId}/adUnits:
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
+    get:
+      operationId: accounts_adUnits_list
+      summary: List the ad units under the specified AdMob account.
+      description: List the ad units under the specified AdMob account.
+      tags:
+      - adUnits
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account to list ad units for. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      - name: pageToken
+        in: query
+        description: The value returned by the last `ListAdUnitsResponse`; indicates that this is a continuation of a prior `ListAdUnits` call, and that the system should return the next page of data.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAdUnitsResponse'
+      security:
+      - GoogleOAuth2:
+        - https://www.googleapis.com/auth/admob.readonly
+    post:
+      operationId: accounts_adUnits_create
+      summary: Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied
+      description: Creates an ad unit under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
+      tags:
+      - adUnits
+      parameters:
+      - name: parent
+        in: path
+        description: 'Required. Resource name of the account to create the specified ad unit for. Example: accounts/pub-9876543210987654'
+        required: true
+        schema:
+          type: string
+          pattern: ^accounts/[^/]+$
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdUnit_2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdUnit_2'
+components:
+  schemas:
+    ListAdUnitsResponse:
+      type: object
+      description: Response for the ad units list request.
+      properties:
+        adUnits:
+          type: array
+          description: The resulting ad units for the requested account.
+          items:
+            $ref: '#/components/schemas/AdUnit'
+        nextPageToken:
+          type: string
+          description: If not empty, indicates that there may be more ad units for the request; this value should be passed in a new `ListAdUnitsRequest`.
+    AdUnit:
+      type: object
+      description: Describes an AdMob ad unit.
+      properties:
+        appId:
+          type: string
+          description: 'The externally visible ID of the app this ad unit is associated with. Example: ca-app-pub-9876543210987654~0123456789'
+        displayName:
+          type: string
+          description: The display name of the ad unit as shown in the AdMob UI, which is provided by the user. The maximum length allowed is 80 characters.
+        adTypes:
+          type: array
+          description: 'Ad media type supported by this ad unit. Possible values as follows: "RICH_MEDIA" - Text, image, and other non-video media. "VIDEO" - Video media.'
+          items:
+            type: string
+        name:
+          type: string
+          description: 'Resource name for this ad unit. Format is accounts/{publisher_id}/adUnits/{ad_unit_id_fragment} Example: accounts/pub-9876543210987654/adUnits/0123456789'
+        adUnitId:
+          type: string
+          description: 'The externally visible ID of the ad unit which can be used to integrate with AdMob. This is a read only property. Example: ca-app-pub-9876543210987654/0123456789'
+        adFormat:
+          type: string
+          description: 'AdFormat of the ad unit. Possible values are as follows: "APP_OPEN" - App Open ad format. "BANNER" - Banner ad format. "BANNER_INTERSTITIAL" - Legacy format that can be used as either banner or interstitial. This format can no longer be created but can be targeted by mediation groups. "INTERSTITIAL" - A full screen ad. Supported ad types are "RICH_MEDIA" and "VIDEO". "NATIVE" - Native ad format. "REWARDED" - An ad that, once viewed, gets a callback verifying the view so that a reward can be given to the user. Supported ad types are "RICH_MEDIA" (interactive) and video where video can not be excluded. "REWARDED_INTERSTITIAL" - Rewarded Interstitial ad format. Only supports video ad type. See https://support.google.com/admob/answer/9884467.'
+    AdUnitRewardSettings:
+      type: object
+      description: Settings for a rewarded ad unit.
+      properties:
+        unitAmount:
+          type: string
+          format: int64
+          description: Reward amount for this ad unit.
+        unitType:
+          type: string
+          description: Reward item for this ad unit.
+    AdUnit_2:
+      type: object
+      description: Describes an AdMob ad unit.
+      properties:
+        appId:
+          type: string
+          description: 'The externally visible ID of the app this ad unit is associated with. Example: ca-app-pub-9876543210987654~0123456789'
+        adFormat:
+          type: string
+          description: 'AdFormat of the ad unit. Possible values are as follows: "APP_OPEN" - App Open ad format. "BANNER" - Banner ad format. "BANNER_INTERSTITIAL" - Legacy format that can be used as either banner or interstitial. This format can no longer be created but can be targeted by mediation groups. "INTERSTITIAL" - A full screen ad. Supported ad types are "RICH_MEDIA" and "VIDEO". "NATIVE" - Native ad format. "REWARDED" - An ad that, once viewed, gets a callback verifying the view so that a reward can be given to the user. Supported ad types are "RICH_MEDIA" (interactive) and video where video can not be excluded. "REWARDED_INTERSTITIAL" - Rewarded Interstitial ad format. Only supports video ad type. See https://support.google.com/admob/answer/9884467.'
+        name:
+          type: string
+          description: 'Resource name for this ad unit. Format is accounts/{publisher_id}/adUnits/{ad_unit_id_fragment} Example: accounts/pub-9876543210987654/adUnits/0123456789'
+        displayName:
+          type: string
+          description: The display name of the ad unit as shown in the AdMob UI, which is provided by the user. The maximum length allowed is 80 characters.
+        adTypes:
+          type: array
+          description: 'Ad media type supported by this ad unit. Possible values as follows: "RICH_MEDIA" - Text, image, and other non-video media. "VIDEO" - Video media.'
+          items:
+            type: string
+        rewardSettings:
+          $ref: '#/components/schemas/AdUnitRewardSettings'
+        adUnitId:
+          type: string
+          description: 'The externally visible ID of the ad unit which can be used to integrate with AdMob. This is a read only property. Example: ca-app-pub-9876543210987654/0123456789'
+  securitySchemes:
+    GoogleOAuth2:
+      type: oauth2
+      description: Google OAuth 2.0. See https://developers.google.com/admob/api/v1/auth
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/admob.readonly: See your AdMob data
+            https://www.googleapis.com/auth/admob.report: See your AdMob data
+externalDocs:
+  url: https://developers.google.com/admob/api/
+x-refined-from:
+- admob-api-v1-openapi.yml
+- admob-api-v1beta-openapi.yml
