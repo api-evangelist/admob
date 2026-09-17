@@ -121,26 +121,6 @@ apis:
     url: authentication/admob-authentication.yml
   - type: OAuthScopes
     url: scopes/admob-scopes.yml
-- aid: admob:admob-adunits-api
-  name: AdMob Ad Units API
-  description: The adUnits API from AdMob — 2 operation(s) for adunits.
-  humanURL: https://developers.google.com/admob/api
-  baseURL: https://admob.googleapis.com
-  tags:
-  - Ad Units
-  tags_raw:
-  - adUnits
-  properties:
-  - type: OpenAPI
-    url: openapi/admob-adunits-api-openapi.yml
-  - type: Documentation
-    url: https://developers.google.com/admob/api/v1/getting-started
-  - type: APIReference
-    url: https://developers.google.com/admob/api/rest
-  - type: Authentication
-    url: authentication/admob-authentication.yml
-  - type: OAuthScopes
-    url: scopes/admob-scopes.yml
 - aid: admob:admob-apps-api
   name: AdMob Apps API
   description: The apps API from AdMob — 2 operation(s) for apps.
@@ -247,6 +227,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/admob-networkreport-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/admob/api/v1/getting-started
+  - type: APIReference
+    url: https://developers.google.com/admob/api/rest
+  - type: Authentication
+    url: authentication/admob-authentication.yml
+  - type: OAuthScopes
+    url: scopes/admob-scopes.yml
+- aid: admob:admob-ad-units-api
+  name: AdMob Ad Units API
+  description: The Ad Units API from AdMob — 2 operation(s) for ad units.
+  humanURL: https://developers.google.com/admob/api
+  baseURL: https://admob.googleapis.com
+  tags:
+  - Ad Units
+  properties:
+  - type: OpenAPI
+    url: openapi/admob-ad-units-api-openapi.yml
   - type: Documentation
     url: https://developers.google.com/admob/api/v1/getting-started
   - type: APIReference
