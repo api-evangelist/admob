@@ -19,18 +19,15 @@ security:
   - https://www.googleapis.com/auth/admob.readonly
   - https://www.googleapis.com/auth/admob.report
 tags:
-- name: apps
+- name: Apps
 paths:
   /v1/accounts/{accountsId}/apps:
-    servers:
-    - url: https://admob.googleapis.com
-      description: AdMob API
     get:
       operationId: accounts_apps_list
-      summary: List the apps under the specified AdMob account.
+      summary: List the apps under the specified AdMob account
       description: List the apps under the specified AdMob account.
       tags:
-      - apps
+      - Apps
       parameters:
       - name: parent
         in: path
@@ -60,16 +57,16 @@ paths:
       security:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
-  /v1beta/accounts/{accountsId}/apps:
     servers:
     - url: https://admob.googleapis.com
       description: AdMob API
+  /v1beta/accounts/{accountsId}/apps:
     post:
       operationId: accounts_apps_create
-      summary: Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied err
+      summary: Creates an app under the specified AdMob account.
       description: Creates an app under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
-      - apps
+      - Apps
       parameters:
       - name: parent
         in: path
@@ -93,10 +90,10 @@ paths:
                 $ref: '#/components/schemas/App'
     get:
       operationId: accounts_apps_list
-      summary: List the apps under the specified AdMob account.
+      summary: List the apps under the specified AdMob account
       description: List the apps under the specified AdMob account.
       tags:
-      - apps
+      - Apps
       parameters:
       - name: parent
         in: path
@@ -126,6 +123,9 @@ paths:
       security:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
 components:
   schemas:
     AppLinkedAppInfo:
@@ -189,6 +189,38 @@ components:
         name:
           type: string
           description: 'Resource name for this app. Format is accounts/{publisher_id}/apps/{app_id_fragment} Example: accounts/pub-9876543210987654/apps/0123456789'
+    AppLinkedAppInfo_2:
+      type: object
+      description: Information from the app store if the app is linked to an app store.
+      properties:
+        displayName:
+          type: string
+          description: Output only. Display name of the app as it appears in the app store. This is an output-only field, and may be empty if the app cannot be found in the store.
+          readOnly: true
+        androidAppStores:
+          type: array
+          description: Optional. The app store information for published Android apps. This field is only used for apps on the Android platform and will be ignored if the PLATFORM is set to iOS. The default value is the Google Play App store. This field can be updated after app is created. If the app is not published, this field will not be included in the response.
+          items:
+            type: string
+            enum:
+            - ANDROID_APP_STORE_UNSPECIFIED
+            - GOOGLE_PLAY_APP_STORE
+            - AMAZON_APP_STORE
+            - OPPO_APP_STORE
+            - SAMSUNG_APP_STORE
+            - VIVO_APP_STORE
+            - XIAOMI_APP_STORE
+            x-enumDescriptions:
+            - Default value for an unset field. Do not use.
+            - Google Play Store.
+            - Amazon Appstore.
+            - Oppo App Market.
+            - Samsung Galaxy Store.
+            - VIVO App Store.
+            - Xiaomi GetApps.
+        appStoreId:
+          type: string
+          description: 'The app store ID of the app; present if and only if the app is linked to an app store. If the app is added to the Google Play store, it will be the application ID of the app. For example: "com.example.myapp". See https://developer.android.com/studio/build/application-id. If the app is added to the Apple App Store, it will be app store ID. For example "105169111". Note that setting the app store id is considered an irreversible action. Once an app is linked, it cannot be unlinked.'
   securitySchemes:
     GoogleOAuth2:
       type: oauth2

@@ -2,15 +2,15 @@
 kin_checks:
   slug: admob
   schema_version: 0.22.0
-  scored_at: '2026-09-15'
-  run_ts: 2026-09-15T230249
+  scored_at: '2026-09-16'
+  run_ts: 2026-09-16T210549
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.22.0.yml; counts below let you verify that.
   counts:
     total: 136
-    earned: 51
-    partial: 10
-    missed: 49
+    earned: 50
+    partial: 12
+    missed: 48
     na: 26
   checks:
   - id: multiple_apis
@@ -19,9 +19,6 @@ kin_checks:
     status: missed
   - id: apis_json_self_hosted
     status: missed
-  - id: openapi_3_2
-    status: missed
-    detail: 0 of 11 openapi documents pass
   - id: openapi_3_0
     status: missed
     detail: 0 of 11 openapi documents pass
@@ -117,14 +114,22 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
+  - id: openapi_3_2
+    status: partial
+    earned: 0.46
+    detail: 1 of 11 openapi documents pass
+  - id: openapi_3_1
+    status: partial
+    earned: 4.55
+    detail: 10 of 11 openapi documents pass
   - id: operations_operation_ids
     status: partial
     earned: 2.18
     detail: 6 of 11 openapi documents pass
   - id: components_reuse
     status: partial
-    earned: 1.09
-    detail: 4 of 11 openapi documents pass
+    earned: 1.36
+    detail: 5 of 11 openapi documents pass
   - id: conformance_declared
     status: partial
     earned: 1.5

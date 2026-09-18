@@ -24,7 +24,7 @@ paths:
   /v1beta/accounts/{accountsId}/adSources:
     get:
       operationId: accounts_adSources_list
-      summary: List the ad sources.
+      summary: List the ad sources
       description: List the ad sources.
       tags:
       - adSources

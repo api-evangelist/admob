@@ -19,15 +19,15 @@ security:
   - https://www.googleapis.com/auth/admob.readonly
   - https://www.googleapis.com/auth/admob.report
 tags:
-- name: adapters
+- name: Adapters
 paths:
   /v1beta/accounts/{accountsId}/adSources/{adSourcesId}/adapters:
     get:
       operationId: accounts_adSources_adapters_list
-      summary: List the adapters of the ad source.
+      summary: List the adapters of the ad source
       description: List the adapters of the ad source.
       tags:
-      - adapters
+      - Adapters
       parameters:
       - name: parent
         in: path

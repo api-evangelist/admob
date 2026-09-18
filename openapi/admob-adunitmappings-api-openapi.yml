@@ -24,7 +24,7 @@ paths:
   /v1beta/accounts/{accountsId}/adUnits/{adUnitsId}/adUnitMappings:
     post:
       operationId: accounts_adUnits_adUnitMappings_create
-      summary: Create an ad unit mapping under the specific AdMob account and ad unit. This method has limited access. If you see a 403
+      summary: Create an ad unit mapping under the specific AdMob account and ad unit.
       description: Create an ad unit mapping under the specific AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - adUnitMappings
@@ -51,7 +51,7 @@ paths:
                 $ref: '#/components/schemas/AdUnitMapping'
     get:
       operationId: accounts_adUnits_adUnitMappings_list
-      summary: List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 pe
+      summary: List ad unit mappings under the specified AdMob account and ad unit.
       description: List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - adUnitMappings
@@ -92,7 +92,7 @@ paths:
   /v1beta/accounts/{accountsId}/adUnitMappings:batchCreate:
     post:
       operationId: accounts_adUnitMappings_batchCreate
-      summary: Batch create the ad unit mappings under the specific AdMob account. The maximum allowed batch size is 100. This method h
+      summary: Batch create the ad unit mappings under the specific AdMob account.
       description: Batch create the ad unit mappings under the specific AdMob account. The maximum allowed batch size is 100. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - adUnitMappings
@@ -128,15 +128,15 @@ components:
           description: The Ad units mappings created under the requested account.
           items:
             $ref: '#/components/schemas/AdUnitMapping'
-    CreateAdUnitMappingRequest:
+    BatchCreateAdUnitMappingsRequest:
       type: object
-      description: Request to create an ad unit mapping under the specific AdMob account and ad unit.
+      description: Request to create a batch of ad unit mappings under the specific AdMob account.
       properties:
-        parent:
-          type: string
-          description: 'Required. The parent which owns the ad unit mapping. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}'
-        adUnitMapping:
-          $ref: '#/components/schemas/AdUnitMapping'
+        requests:
+          type: array
+          description: Required. The request message specifying the ad unit mappings to create. A maximum of 100 ad unit mappings can be created in a batch. If the number of ad unit mappings in the batch request exceed 100, the entire request will be rejected and no ad unit mappings will be created.
+          items:
+            $ref: '#/components/schemas/CreateAdUnitMappingRequest'
     AdUnitMapping:
       type: object
       description: Settings to map an AdMob ad unit to a 3rd party ad unit.
@@ -166,15 +166,15 @@ components:
         displayName:
           type: string
           description: Optional. The display name of this ad unit mapping instance.
-    BatchCreateAdUnitMappingsRequest:
+    CreateAdUnitMappingRequest:
       type: object
-      description: Request to create a batch of ad unit mappings under the specific AdMob account.
+      description: Request to create an ad unit mapping under the specific AdMob account and ad unit.
       properties:
-        requests:
-          type: array
-          description: Required. The request message specifying the ad unit mappings to create. A maximum of 100 ad unit mappings can be created in a batch. If the number of ad unit mappings in the batch request exceed 100, the entire request will be rejected and no ad unit mappings will be created.
-          items:
-            $ref: '#/components/schemas/CreateAdUnitMappingRequest'
+        parent:
+          type: string
+          description: 'Required. The parent which owns the ad unit mapping. Format: accounts/{publisher_id}/adUnits/{ad_unit_id}'
+        adUnitMapping:
+          $ref: '#/components/schemas/AdUnitMapping'
     ListAdUnitMappingsResponse:
       type: object
       description: Response for the ListAdUnitMappingsRequest.

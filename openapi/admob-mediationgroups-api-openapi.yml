@@ -24,7 +24,7 @@ paths:
   /v1beta/accounts/{accountsId}/mediationGroups:
     get:
       operationId: accounts_mediationGroups_list
-      summary: List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission den
+      summary: List mediation groups under the specified AdMob account.
       description: List mediation groups under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - mediationGroups
@@ -64,7 +64,7 @@ paths:
         - https://www.googleapis.com/auth/admob.readonly
     post:
       operationId: accounts_mediationGroups_create
-      summary: Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission d
+      summary: Create a mediation group under the specific AdMob account.
       description: Create a mediation group under the specific AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - mediationGroups
@@ -92,7 +92,7 @@ paths:
   /v1beta/accounts/{accountsId}/mediationGroups/{mediationGroupsId}:
     patch:
       operationId: accounts_mediationGroups_patch
-      summary: Update the specified mediation group under the specified AdMob account. This method has limited access. If you see a 403
+      summary: Update the specified mediation group under the specified AdMob account.
       description: Update the specified mediation group under the specified AdMob account. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access.
       tags:
       - mediationGroups
@@ -125,6 +125,44 @@ paths:
                 $ref: '#/components/schemas/MediationGroup'
 components:
   schemas:
+    MediationGroupTargeting:
+      type: object
+      description: Set of criteria targeted by this mediation group. For example, a mediation group can target specific ad unit IDs, platform, format and geo location.
+      properties:
+        platform:
+          type: string
+          description: 'Describes the platform of the app. Examples: "IOS", "ANDROID".'
+        targetedRegionCodes:
+          type: array
+          description: The Unicode country/region code (CLDR) of a location, such as "US". Unset if this mediation group targets all available regions. For more information, see http://www.unicode.org/reports/tr35/#unicode_region_subtag.
+          items:
+            type: string
+        adUnitIds:
+          type: array
+          description: 'Ad units targeted by this mediation group. Example: "ca-app-pub-1234/8790".'
+          items:
+            type: string
+        excludedRegionCodes:
+          type: array
+          description: The Unicode country/region code (CLDR) of a location, such as "US". Unset if this mediation group does not exclude any region.
+          items:
+            type: string
+        idfaTargeting:
+          type: string
+          description: The parameter can be used to target ad requests based on the availability of the IDFA. If set to ALL, the mediation group applies to all ad requests (with or without IDFA). If set to AVAILABLE, the mediation group applies to ad requests with IDFA. If set to NOT_AVAILABLE, the mediation group applies to ad requests without IDFA. Doesn't need to be specified for an ANDROID device.
+          enum:
+          - IDFA_TARGETING_UNSPECIFIED
+          - ALL
+          - AVAILABLE
+          - NOT_AVAILABLE
+          x-enumDescriptions:
+          - Default value. This value is unused.
+          - All the devices are targeted, regardless of IDFA availability.
+          - Only the devices with IDFA availability are targeted.
+          - Only the devices without IDFA availability are targeted.
+        format:
+          type: string
+          description: 'Ad format targeted by this mediation group. Examples: "BANNER", "NATIVE".'
     MediationGroup:
       type: object
       description: Describes an AdMob Mediation group.
@@ -168,44 +206,18 @@ components:
           - The mediation group has an experiment in the RUNNING state.
           - There is no experiment in the RUNNING state in the mediation group.
           readOnly: true
-    MediationGroupTargeting:
+    ListMediationGroupsResponse:
       type: object
-      description: Set of criteria targeted by this mediation group. For example, a mediation group can target specific ad unit IDs, platform, format and geo location.
+      description: Response for the mediation groups list request.
       properties:
-        platform:
-          type: string
-          description: 'Describes the platform of the app. Examples: "IOS", "ANDROID".'
-        targetedRegionCodes:
+        mediationGroups:
           type: array
-          description: The Unicode country/region code (CLDR) of a location, such as "US". Unset if this mediation group targets all available regions. For more information, see http://www.unicode.org/reports/tr35/#unicode_region_subtag.
+          description: The resulting mediation groups for the requested account.
           items:
-            type: string
-        adUnitIds:
-          type: array
-          description: 'Ad units targeted by this mediation group. Example: "ca-app-pub-1234/8790".'
-          items:
-            type: string
-        excludedRegionCodes:
-          type: array
-          description: The Unicode country/region code (CLDR) of a location, such as "US". Unset if this mediation group does not exclude any region.
-          items:
-            type: string
-        idfaTargeting:
+            $ref: '#/components/schemas/MediationGroup'
+        nextPageToken:
           type: string
-          description: The parameter can be used to target ad requests based on the availability of the IDFA. If set to ALL, the mediation group applies to all ad requests (with or without IDFA). If set to AVAILABLE, the mediation group applies to ad requests with IDFA. If set to NOT_AVAILABLE, the mediation group applies to ad requests without IDFA. Doesn't need to be specified for an ANDROID device.
-          enum:
-          - IDFA_TARGETING_UNSPECIFIED
-          - ALL
-          - AVAILABLE
-          - NOT_AVAILABLE
-          x-enumDescriptions:
-          - Default value. This value is unused.
-          - All the devices are targeted, regardless of IDFA availability.
-          - Only the devices with IDFA availability are targeted.
-          - Only the devices without IDFA availability are targeted.
-        format:
-          type: string
-          description: 'Ad format targeted by this mediation group. Examples: "BANNER", "NATIVE".'
+          description: If not empty, indicates that there may be more mediation groups for the request; this value should be passed in a new `ListMediationGroupsRequest`.
     MediationGroupMediationGroupLine:
       type: object
       description: Settings for an ad network used by a mediation group.
@@ -268,18 +280,6 @@ components:
         displayName:
           type: string
           description: User-provided label for this mediation line. The maximum length allowed is 255 characters.
-    ListMediationGroupsResponse:
-      type: object
-      description: Response for the mediation groups list request.
-      properties:
-        mediationGroups:
-          type: array
-          description: The resulting mediation groups for the requested account.
-          items:
-            $ref: '#/components/schemas/MediationGroup'
-        nextPageToken:
-          type: string
-          description: If not empty, indicates that there may be more mediation groups for the request; this value should be passed in a new `ListMediationGroupsRequest`.
   securitySchemes:
     GoogleOAuth2:
       type: oauth2

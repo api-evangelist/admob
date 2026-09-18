@@ -19,18 +19,15 @@ security:
   - https://www.googleapis.com/auth/admob.readonly
   - https://www.googleapis.com/auth/admob.report
 tags:
-- name: accounts
+- name: Accounts
 paths:
   /v1/accounts/{accountsId}:
-    servers:
-    - url: https://admob.googleapis.com
-      description: AdMob API
     get:
       operationId: accounts_get
-      summary: Gets information about the specified AdMob publisher account.
+      summary: Gets information about the specified AdMob publisher account
       description: Gets information about the specified AdMob publisher account.
       tags:
-      - accounts
+      - Accounts
       parameters:
       - name: name
         in: path
@@ -50,16 +47,16 @@ paths:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
         - https://www.googleapis.com/auth/admob.report
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
   /v1/accounts:
-    servers:
-    - url: https://admob.googleapis.com
-      description: AdMob API
     get:
       operationId: accounts_list
-      summary: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https
+      summary: Lists the AdMob publisher account that was most recently signed in to from the…
       description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.
       tags:
-      - accounts
+      - Accounts
       parameters:
       - name: pageSize
         in: query
@@ -83,16 +80,16 @@ paths:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
         - https://www.googleapis.com/auth/admob.report
-  /v1beta/accounts/{accountsId}:
     servers:
     - url: https://admob.googleapis.com
       description: AdMob API
+  /v1beta/accounts/{accountsId}:
     get:
       operationId: accounts_get
-      summary: Gets information about the specified AdMob publisher account.
+      summary: Gets information about the specified AdMob publisher account
       description: Gets information about the specified AdMob publisher account.
       tags:
-      - accounts
+      - Accounts
       parameters:
       - name: name
         in: path
@@ -112,16 +109,16 @@ paths:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
         - https://www.googleapis.com/auth/admob.report
-  /v1beta/accounts:
     servers:
     - url: https://admob.googleapis.com
       description: AdMob API
+  /v1beta/accounts:
     get:
       operationId: accounts_list
-      summary: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https
+      summary: Lists the AdMob publisher account that was most recently signed in to from the…
       description: Lists the AdMob publisher account that was most recently signed in to from the AdMob UI. For more information, see https://support.google.com/admob/answer/10243672.
       tags:
-      - accounts
+      - Accounts
       parameters:
       - name: pageSize
         in: query
@@ -145,8 +142,23 @@ paths:
       - GoogleOAuth2:
         - https://www.googleapis.com/auth/admob.readonly
         - https://www.googleapis.com/auth/admob.report
+    servers:
+    - url: https://admob.googleapis.com
+      description: AdMob API
 components:
   schemas:
+    ListPublisherAccountsResponse:
+      type: object
+      description: Response for the publisher account list request.
+      properties:
+        nextPageToken:
+          type: string
+          description: If not empty, indicates that there might be more accounts for the request; you must pass this value in a new `ListPublisherAccountsRequest`.
+        account:
+          type: array
+          description: Publisher that the client credentials can access.
+          items:
+            $ref: '#/components/schemas/PublisherAccount'
     PublisherAccount:
       type: object
       description: A publisher account contains information relevant to the use of this API, such as the time zone used for the reports.
@@ -163,18 +175,6 @@ components:
         currencyCode:
           type: string
           description: Currency code of the earning-related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion.
-    ListPublisherAccountsResponse:
-      type: object
-      description: Response for the publisher account list request.
-      properties:
-        nextPageToken:
-          type: string
-          description: If not empty, indicates that there might be more accounts for the request; you must pass this value in a new `ListPublisherAccountsRequest`.
-        account:
-          type: array
-          description: Publisher that the client credentials can access.
-          items:
-            $ref: '#/components/schemas/PublisherAccount'
   securitySchemes:
     GoogleOAuth2:
       type: oauth2
